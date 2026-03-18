@@ -303,3 +303,62 @@
 
 # 2026-03-17 17:55:06.554682
 +/exit
+
+# 2026-03-17 18:00:06.167491
++y
+
+# 2026-03-17 18:00:07.942239
++Fix this Tailwind CSS v4 build error in my Next.js App Router project:
++
++Error:
++Cannot apply unknown utility class `bg-blue-600`
++app/globals.css
++
++Tasks:
++1. Audit app/globals.css for any @apply usage or invalid Tailwind v4 patterns
++2. Remove all @apply usage from app/globals.css
++3. Convert globals.css to the simplest valid Tailwind v4 global stylesheet
++4. Ensure postcss.config.mjs uses @tailwindcss/postcss
++5. Keep the site as a simple dark SaaS landing page
++6. Return FULL FILE CONTENTS ONLY for changed files, never diffs
++
++Use this exact minimal globals.css pattern:
++@import "tailwindcss";
++
++:root {
++  color-scheme: dark;
++}
++
++html {
++  scroll-behavior: smooth;
++}
++
++html,
++body {
++  margin: 0;
++  padding: 0;
++  min-height: 100%;
++  background: #07090d;
++  color: #ffffff;
++  font-family: Arial, Helvetica, sans-serif;
++}
++
++* {
++  box-sizing: border-box;
++}
++
++a {
++  text-decoration: none;
++}
++
++Also verify that:
++- app/page.tsx uses Tailwind classes directly in JSX
++- no CSS modules or other CSS files are using @apply incorrectly
++- postcss.config.mjs is correct for Tailwind v4
++- package.json dependencies are compatible with Tailwind v4 and Next.js
+
+# 2026-03-17 18:00:09.363927
++y
+
+# 2026-03-17 18:01:57.785594
++/exit
