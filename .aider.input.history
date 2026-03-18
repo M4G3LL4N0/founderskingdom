@@ -733,3 +733,71 @@
 
 # 2026-03-18 13:16:08.800173
 +/exit
+
+# 2026-03-18 15:27:38.834329
++Add a "Generate Site" button per lead.
++
++When clicked:
++- call /api/generate-and-save
++- pass business_name, category, city
++- show loading state
++- after success, show "Site Created"
++
++Do NOT break existing UI.
+
+# 2026-03-18 15:29:15.596541
++/exit
+
+# 2026-03-18 15:29:56.900585
++Do not redesign the homepage. Preserve the current visual output and content structure exactly.
++
++Only audit for technical stability and build safety:
++1. ensure app/page.tsx is a valid Next.js module
++2. ensure exports/imports are clean
++3. ensure no broken file references remain
++4. ensure build passes
++5. do not change the website appearance, copy, layout, spacing, colors, or sections
++6. only make minimal technical fixes if needed
++7. return full file contents only if a file truly must change
+
+# 2026-03-18 15:36:55.759909
++Add alert indicators.
++
++Requirements:
++- show alert level for each case file
++- highlight high-risk cases visually
++- keep UI premium
+
+# 2026-03-18 15:38:31.737194
++t
+
+# 2026-03-18 15:38:42.702371
++y
+
+# 2026-03-18 15:39:15.822792
++/exit
+
+# 2026-03-18 15:43:51.302913
++Do not redesign the website.
++
++Only fix technical build integrity.
++
++Problem:
++Next.js says app/app/leads/page.tsx is not a module.
++
++Tasks:
++1. Audit app/app/leads/page.tsx only
++2. Ensure it is a valid App Router page file
++3. It must default export a React component
++4. Do not change homepage design or any visual output outside the broken file
++5. If the file is empty, corrupted, has invalid bytes, or is missing an export, replace it with a minimal valid placeholder page
++6. Also check for other page.tsx files under app that are empty or missing default exports
++7. Return full file contents only for files that must change
++8. Preserve the current FoundersKingdom website design
++
++Important:
++- Next.js App Router pages must default export a React component from page.tsx
++- keep fixes minimal and technical only
+
+# 2026-03-18 15:46:32.868253
++/exit

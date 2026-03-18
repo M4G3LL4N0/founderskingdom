@@ -30,7 +30,7 @@ body {
 }
 
 *::selection {
-  background: rgba(125, 211, 252, 0.18);
+  background: rgba(134, 239, 172, 0.18);
   color: #ffffff;
 }
 

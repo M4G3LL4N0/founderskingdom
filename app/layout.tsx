@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import CaseAlert from './components/CaseAlert';
 
 export const metadata: Metadata = {
   title: "FoundersKingdom",
@@ -15,10 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-        <CaseAlert risk="high" label="Critical" />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
