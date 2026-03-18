@@ -245,6 +245,9 @@ export default function Home() {
           <a className="transition hover:text-white" href="/platform">
             Platform
           </a>
+          <a className="transition hover:text-white" href="/features">
+            Features
+          </a>
           <a className="transition hover:text-white" href="/ecosystem">
             Ecosystem
           </a>
@@ -256,6 +259,9 @@ export default function Home() {
           </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
+          </a>
+          <a className="transition hover:text-white" href="/contact">
+            Contact
           </a>
           <a className="transition hover:text-white" href="#cta">
             Get started
@@ -820,6 +826,9 @@ export default function Home() {
           <a className="transition hover:text-white" href="/platform">
             Platform
           </a>
+          <a className="transition hover:text-white" href="/features">
+            Features
+          </a>
           <a className="transition hover:text-white" href="/ecosystem">
             Ecosystem
           </a>
@@ -831,6 +840,9 @@ export default function Home() {
           </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
+          </a>
+          <a className="transition hover:text-white" href="/contact">
+            Contact
           </a>
         </div>
       </footer>
