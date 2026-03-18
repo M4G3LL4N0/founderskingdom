@@ -245,6 +245,15 @@ export default function Home() {
           <a className="transition hover:text-white" href="/platform">
             Platform
           </a>
+          <a className="transition hover:text-white" href="/ecosystem">
+            Ecosystem
+          </a>
+          <a className="transition hover:text-white" href="/about">
+            About
+          </a>
+          <a className="transition hover:text-white" href="/pricing">
+            Pricing
+          </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
           </a>
@@ -299,7 +308,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="#cta"
+              href="/waitlist"
               className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
             >
               Join the waitlist
@@ -771,12 +780,12 @@ export default function Home() {
               placeholder="Enter your email"
               className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
-            <button
-              type="submit"
+            <a
+              href="/waitlist"
               className="inline-flex min-h-[56px] min-w-[190px] items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
             >
               Join Waitlist
-            </button>
+            </a>
           </form>
 
           <div className="mt-4 text-sm text-white/42">
@@ -810,6 +819,15 @@ export default function Home() {
           </a>
           <a className="transition hover:text-white" href="/platform">
             Platform
+          </a>
+          <a className="transition hover:text-white" href="/ecosystem">
+            Ecosystem
+          </a>
+          <a className="transition hover:text-white" href="/about">
+            About
+          </a>
+          <a className="transition hover:text-white" href="/pricing">
+            Pricing
           </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
