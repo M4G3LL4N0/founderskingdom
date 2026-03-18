@@ -251,11 +251,17 @@ export default function Home() {
           <a className="transition hover:text-white" href="/ecosystem">
             Ecosystem
           </a>
+          <a className="transition hover:text-white" href="/vision">
+            Vision
+          </a>
           <a className="transition hover:text-white" href="/about">
             About
           </a>
           <a className="transition hover:text-white" href="/pricing">
             Pricing
+          </a>
+          <a className="transition hover:text-white" href="/security">
+            Security
           </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
@@ -832,11 +838,17 @@ export default function Home() {
           <a className="transition hover:text-white" href="/ecosystem">
             Ecosystem
           </a>
+          <a className="transition hover:text-white" href="/vision">
+            Vision
+          </a>
           <a className="transition hover:text-white" href="/about">
             About
           </a>
           <a className="transition hover:text-white" href="/pricing">
             Pricing
+          </a>
+          <a className="transition hover:text-white" href="/security">
+            Security
           </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
