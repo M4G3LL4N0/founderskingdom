@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from'next/link'
 
 export default function Home() {
   return (
@@ -33,14 +33,12 @@ export default function Home() {
                   href="/waitlist" 
                   className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-2xl transition"
                 >
-                  Join the Waitlist
-                </Link>
+                  Join the Waitlist                </Link>
                 <Link 
                   href="/explore" 
                   className="border-2 border-white text-white font-medium px-8 py-4 rounded-2xl hover:bg-white hover:text-gray-950 transition"
                 >
-                  Explore the Platform
-                </Link>
+                  Explore the Platform                </Link>
               </div>
             </div>
           </div>
@@ -130,8 +128,7 @@ export default function Home() {
                 </p>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                    See it in action
-                  </div>
+                    See it in action                  </div>
                 </div>
               </div>
               <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8">
@@ -274,7 +271,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Build Your Startup Empire?
-            </h3>
+            </h2>
             <p className="text-xl text-gray-400 mb-12">
               Join founders who are building the future of entrepreneurship.
             </p>
@@ -286,8 +283,7 @@ export default function Home() {
                 Join the Waitlist
               </Link>
               <Link 
-                href="/explore" 
-                className="border-2 border-white text-white font-medium px-8 py-4 rounded-2xl hover:bg-white hover:text-gray-950 transition"
+                href="/explore"                 className="border-2 border-white text-white font-medium px-8 py-4 rounded-2xl hover:bg-white hover:text-gray-950 transition"
               >
                 Explore the Platform
               </Link>
