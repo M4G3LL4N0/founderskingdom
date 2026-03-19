@@ -1,42 +1,13 @@
-const ecosystemLayers = [
-  {
-    title: "Ideas",
-    body: "Raw founder thoughts become structured inputs instead of disappearing into notes, tabs, and half-formed documents.",
-  },
-  {
-    title: "Ventures",
-    body: "Each startup becomes a trackable object with stage, score, positioning, and strategic role inside the broader portfolio.",
-  },
-  {
-    title: "Relationships",
-    body: "The system reveals where ventures share users, infrastructure, positioning, or sequencing opportunities.",
-  },
-  {
-    title: "Compounding",
-    body: "As the founder portfolio grows, the ecosystem becomes more valuable than any single startup in isolation.",
-  },
-];
-
-const examples = [
-  {
-    category: "Audience overlap",
-    insight: "Two ventures can share demand capture and cross-promotion.",
-  },
-  {
-    category: "Infrastructure overlap",
-    insight: "A backend, data layer, or workflow can power more than one company.",
-  },
-  {
-    category: "Positioning overlap",
-    insight: "One venture can strengthen category authority for another.",
-  },
-  {
-    category: "Sequencing overlap",
-    insight: "A smaller product can create momentum for a larger platform later.",
-  },
-];
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useQuery } from '@apollo/client';
+import { GET_ECOSYSTEM_DATA } from '../graphql/queries';
+import { EcosystemCard, RelationshipCard } from '../components';
 
 export default function EcosystemPage() {
+  const router = useRouter();
+  const { data } = useQuery(GET_ECOSYSTEM_DATA);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.12),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
       <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
@@ -64,14 +35,8 @@ export default function EcosystemPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-10 md:px-8">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {ecosystemLayers.map((layer) => (
-            <div
-              key={layer.title}
-              className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28)]"
-            >
-              <h2 className="text-2xl font-semibold tracking-tight">{layer.title}</h2>
-              <p className="mt-4 text-sm leading-6 text-white/58">{layer.body}</p>
-            </div>
+          {data?.ecosystemLayers.map((layer) => (
+            <EcosystemCard key={layer.title} layer={layer} />
           ))}
         </div>
       </section>
@@ -88,16 +53,8 @@ export default function EcosystemPage() {
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {examples.map((example) => (
-              <div
-                key={example.category}
-                className="rounded-[28px] border border-white/8 bg-black/20 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
-              >
-                <div className="text-[11px] uppercase tracking-[0.26em] text-emerald-100/72">
-                  {example.category}
-                </div>
-                <p className="mt-4 text-base leading-7 text-white/58">{example.insight}</p>
-              </div>
+            {data?.examples.map((example) => (
+              <RelationshipCard key={example.category} example={example} />
             ))}
           </div>
         </div>
@@ -105,3 +62,24 @@ export default function EcosystemPage() {
     </main>
   );
 }
+
+// Components
+const EcosystemCard = ({ layer }) => (
+  <div
+    className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28)]"
+  >
+    <h2 className="text-2xl font-semibold tracking-tight">{layer.title}</h2>
+    <p className="mt-4 text-sm leading-6 text-white/58">{layer.body}</p>
+  </div>
+);
+
+const RelationshipCard = ({ example }) => (
+  <div
+    className="rounded-[28px] border border-white/8 bg-black/20 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+  >
+    <div className="text-[11px] uppercase tracking-[0.26em] text-emerald-100/72">
+      {example.category}
+    </div>
+    <p className="mt-4 text-base leading-7 text-white/58">{example.insight}</p>
+  </div>
+);
