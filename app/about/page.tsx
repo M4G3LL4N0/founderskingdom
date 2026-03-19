@@ -1,3 +1,5 @@
+import SiteHeader from '@/components/site-header';
+
 const principles = [
   {
     title: "Founders think in systems",
@@ -38,14 +40,7 @@ const pillars = [
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.12),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
-        <a
-          href="/"
-          className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:bg-white/[0.07]"
-        >
-          ← Back to FoundersKingdom
-        </a>
-      </div>
+      <SiteHeader />
 
       <section className="mx-auto max-w-5xl px-6 pb-20 pt-8 text-center md:px-8 md:pb-28">
         <div className="inline-flex rounded-full border border-emerald-300/15 bg-emerald-300/[0.05] px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-emerald-100/80">

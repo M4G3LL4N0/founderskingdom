@@ -1,3 +1,5 @@
+import SiteHeader from '@/components/site-header';
+
 const heroSignals = [
   "Multi-venture ready",
   "Portfolio command",
@@ -212,89 +214,7 @@ const faqs = [
 export default function Home() {
   return (
     <main className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.16),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(71,223,194,0.10),transparent_20%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_18%,transparent_82%,rgba(255,255,255,0.015))]" />
-      <div className="pointer-events-none absolute left-1/2 top-[-18rem] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[160px] motion-float" />
-      <div className="pointer-events-none absolute right-[-8rem] top-[14rem] h-[24rem] w-[24rem] rounded-full bg-blue-500/10 blur-[140px] motion-float-delayed" />
-
-      <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5 md:px-8">
-        <a href="/" className="group flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition duration-300 group-hover:border-emerald-300/30 group-hover:bg-white/[0.08]">
-            <div className="h-2.5 w-2.5 rounded-full bg-emerald-200 shadow-[0_0_22px_rgba(167,243,208,0.45)]" />
-          </div>
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.28em] text-white/35">
-              Founder Software
-            </div>
-            <div className="text-lg font-semibold tracking-tight">FoundersKingdom</div>
-          </div>
-        </a>
-
-        <nav className="hidden items-center gap-8 text-sm text-white/62 md:flex">
-          <a className="transition hover:text-white" href="/platform">
-            Platform
-          </a>
-          <a className="transition hover:text-white" href="/features">
-            Features
-          </a>
-          <a className="transition hover:text-white" href="/ecosystem">
-            Ecosystem
-          </a>
-          <a className="transition hover:text-white" href="/vision">
-            Vision
-          </a>
-          <a className="transition hover:text-white" href="/about">
-            About
-          </a>
-          <a className="transition hover:text-white" href="/pricing">
-            Pricing
-          </a>
-          <a className="transition hover:text-white" href="/investors">
-            Investors
-          </a>
-          <a className="transition hover:text-white" href="/jobs">
-            Jobs
-          </a>
-          <a className="transition hover:text-white" href="/security">
-            Security
-          </a>
-          <a className="transition hover:text-white" href="/privacy">
-            Privacy
-          </a>
-          <a className="transition hover:text-white" href="/terms">
-            Terms
-          </a>
-          <a className="transition hover:text-white" href="/press">
-            Press
-          </a>
-          <a className="transition hover:text-white" href="/manifesto">
-            Manifesto
-          </a>
-          <a className="transition hover:text-white" href="/changelog">
-            Changelog
-          </a>
-          <a className="transition hover:text-white" href="/contact">
-            Contact
-          </a>
-          <a className="transition hover:text-white" href="/dashboard">
-            Dashboard
-          </a>
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <a
-            href="#"
-            className="hidden rounded-full px-4 py-2 text-sm text-white/70 transition hover:bg-white/[0.05] hover:text-white md:inline-flex"
-          >
-            Login
-          </a>
-          <a
-            href="/waitlist"
-            className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:scale-[1.01] hover:opacity-90"
-          >
-            Get Started
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="relative z-10 mx-auto max-w-7xl px-6 pb-28 pt-14 md:px-8 md:pb-36 md:pt-20">
         <div className="mx-auto max-w-5xl text-center">
@@ -515,49 +435,6 @@ export default function Home() {
       </section>
 
       <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
-        <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.32)] md:p-9">
-          <div className="max-w-3xl">
-            <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
-              Why FoundersKingdom wins
-            </div>
-            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-5xl md:leading-[1.04]">
-              A new category for a new founder behavior.
-            </h2>
-            <p className="mt-6 text-base leading-7 text-white/60 md:text-lg md:leading-8">
-              FoundersKingdom is category-defining because it does not force multi-venture
-              founders into one-company software assumptions. It creates a cleaner operating
-              model for startup portfolios, connected ventures, and compounding strategic
-              leverage.
-            </p>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-[28px] border border-white/8 bg-black/20">
-            {comparisonRows.map((row, index) => (
-              <div
-                key={row.left}
-                className={`grid gap-5 px-5 py-5 md:grid-cols-2 md:px-7 ${
-                  index !== comparisonRows.length - 1 ? "border-b border-white/8" : ""
-                }`}
-              >
-                <div>
-                  <div className="text-[11px] uppercase tracking-[0.24em] text-white/34">
-                    Old model
-                  </div>
-                  <div className="mt-2 text-base leading-7 text-white/58">{row.left}</div>
-                </div>
-                <div>
-                  <div className="text-[11px] uppercase tracking-[0.24em] text-emerald-100/70">
-                    FoundersKingdom
-                  </div>
-                  <div className="mt-2 text-base leading-7 text-white/84">{row.right}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="product" className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
         <div className="space-y-8">
           {capabilityGroups.map((group) => (
             <div

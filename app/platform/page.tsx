@@ -1,3 +1,5 @@
+import SiteHeader from '@/components/site-header';
+
 const layers = [
   {
     title: "Portfolio Layer",
@@ -34,6 +36,8 @@ const philosophyPoints = [
 export default function PlatformPage() {
   return (
     <main className="relative min-h-screen bg-black text-white">
+      <SiteHeader />
+
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-6xl text-center">
