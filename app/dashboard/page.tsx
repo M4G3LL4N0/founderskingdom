@@ -50,7 +50,7 @@ export default function DashboardPage() {
             <div className="text-[13px] uppercase tracking-[0.3em] text-emerald-100/72">
               Founder Command
             </div>
-            <h1 className="mt-6 text-5xl font-bold tracking-[-0.05em] leading-[1.1] md:text-6xl">
+            <h1 className="mt-6 text-5xl font-bold tracking-tight leading-[1.1] md:text-6xl">
               Strategic visibility for your startup portfolio.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
@@ -90,7 +90,8 @@ export default function DashboardPage() {
               Strategic focus
             </div>
             <h2 className="mt-5 text-3xl font-bold tracking-[-0.04em]">
-              Narrow to one core build lane            </h2>
+              Narrow to one core build lane            
+            </h2>
             <p className="mt-6 text-base leading-7 text-white/60">
               Use scoring and momentum together to decide what gets focus now.
             </p>
@@ -139,8 +140,7 @@ export default function DashboardPage() {
                       </span>
                     </div>
                     <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/10">
-                      <div
-                        className="h-full rounded-full bg-white"
+                      <div                        className="h-full rounded-full bg-white"
                         style={{ width: `${startup.score}%` }}
                       />
                     </div>
@@ -181,8 +181,7 @@ export default function DashboardPage() {
                 highest score, and best ecosystem fit across the current portfolio.
               </div>
               <div className="rounded-[24px] border border-white/8 bg-black/20 p-6 text-sm leading-6 text-white/60">
-                Redwoud and FoundersKingdom show the strongest compounding relationship
-                through positioning, intelligence, and founder narrative.
+                Redwoud and FoundersKingdom show the strongest compounding relationship                through positioning, intelligence, and founder narrative.
               </div>
               <div className="rounded-[24px] border border-white/8 bg-black/20 p-6 text-sm leading-6 text-white/60">
                 Example prompt: Show me startups with scoring greater than 90 and recent
@@ -199,7 +198,7 @@ export default function DashboardPage() {
           </div>
           <h2 className="mb-8 text-2xl font-bold tracking-[-0.04em]">
             Latest portfolio updates
-          </div>
+          </h2>
           <div className="rounded-[28px] border border-white/8 bg-black/20 p-10">
             {startups.length > 0 ? (
               <div className="space-y-6">
@@ -228,25 +227,25 @@ export default function DashboardPage() {
         </section>
 
         {/* Quick Actions */}
-        <section>
+        <section className="mb-20">
           <div className="text-[12px] uppercase tracking-[0.28em] text-white/34 mb-6">
             Quick actions
           </div>
           <h2 className="mb-8 text-2xl font-bold tracking-[-0.04em]">
             Accelerate your workflow
-          </div>
+          </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <a
               href="/create"
-              className="group rounded-[28px] border border-white/8 bg-black/20 p-10 hover:bg-white/[0.03] transition-colors"
+              className="group rounded-[30px] border border-white/8 bg-black/30 p-6 hover:bg-white/[0.05] hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-[16px] bg-white/[0.08] flex items-center justify-center">
+                <div className="flex-shrink-0 h-14 w-14 rounded-[18px] bg-white/[0.08] flex items-center justify-center">
                   ➕
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">Add startup</p>
-                  <p className="text-xs text-white/40">
+                  <p className="text-lg font-medium text-white">Create startup</p>
+                  <p className="text-sm text-white/40">
                     Enter new venture details
                   </p>
                 </div>
@@ -254,33 +253,16 @@ export default function DashboardPage() {
             </a>
 
             <a
-              href="/waitlist"
-              className="group rounded-[28px] border border-white/8 bg-black/20 p-10 hover:bg-white/[0.03] transition-colors"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-[16px] bg-white/[0.08] flex items-center justify-center">
-                  📋
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">View waitlist</p>
-                  <p className="text-xs text-white/40">
-                    See interested investors
-                  </p>
-                </div>
-              </div>
-            </a>
-
-            <a
               href="/platform"
-              className="group rounded-[28px] border border-white/8 bg-black/20 p-10 hover:bg-white/[0.03] transition-colors"
+              className="group rounded-[30px] border border-white/8 bg-black/30 p-6 hover:bg-white/[0.05] hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-[16px] bg-white/[0.08] flex items-center justify-center">
+                <div className="flex-shrink-0 h-14 w-14 rounded-[18px] bg-white/[0.08] flex items-center justify-center">
                   ⚙️
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">Platform tools</p>
-                  <p className="text-xs text-white/40">
+                  <p className="text-lg font-medium text-white">View platform</p>
+                  <p className="text-sm text-white/40">
                     Access founder resources
                   </p>
                 </div>
@@ -289,15 +271,15 @@ export default function DashboardPage() {
 
             <a
               href="/ecosystem"
-              className="group rounded-[28px] border border-white/8 bg-black/20 p-10 hover:bg-white/[0.03] transition-colors"
+              className="group rounded-[30px] border border-white/8 bg-black/30 p-6 hover:bg-white/[0.05] hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-[16px] bg-white/[0.08] flex items-center justify-center">
+                <div className="flex-shrink-0 h-14 w-14 rounded-[18px] bg-white/[0.08] flex items-center justify-center">
                   🌐
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">Ecosystem map</p>
-                  <p className="text-xs text-white/40">
+                  <p className="text-lg font-medium text-white">View ecosystem</p>
+                  <p className="text-sm text-white/40">
                     Explore venture connections
                   </p>
                 </div>
@@ -305,34 +287,17 @@ export default function DashboardPage() {
             </a>
 
             <a
-              href="/vision"
-              className="group rounded-[28px] border border-white/8 bg-black/20 p-10 hover:bg-white/[0.03] transition-colors"
+              href="/waitlist"
+              className="group rounded-[30px] border border-white/8 bg-black/30 p-6 hover:bg-white/[0.05] hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-[16px] bg-white/[0.08] flex items-center justify-center">
-                  👁️
+                <div className="flex-shrink-0 h-14 w-14 rounded-[18px] bg-white/[0.08] flex items-center justify-center">
+                  📋
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">Vision settings</p>
-                  <p className="text-xs text-white/40">
-                    Adjust strategic focus
-                  </p>
-                </div>
-              </div>
-            </a>
-
-            <a
-              href="/pricing"
-              className="group rounded-[28px] border border-white/8 bg-black/20 p-10 hover:bg-white/[0.03] transition-colors"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-[16px] bg-white/[0.08] flex items-center justify-center">
-                  💰
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">Plans & billing</p>
-                  <p className="text-xs text-white/40">
-                    Manage subscription
+                  <p className="text-lg font-medium text-white">Join waitlist</p>
+                  <p className="text-sm text-white/40">
+                    See interested investors
                   </p>
                 </div>
               </div>
