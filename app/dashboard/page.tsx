@@ -1,101 +1,175 @@
-import React from 'react';
+import { mockStartups } from "@/lib/startups";
+import RelationshipMapPreview from "@/components/relationship-map-preview";
+
+function priorityLabel(score: number) {
+  if (score >= 85) return "High Priority";
+  if (score >= 70) return "Medium Priority";
+  return "Low Priority";
+}
+
+function priorityClasses(score: number) {
+  if (score >= 85) return "bg-red-600/20 text-red-200 border border-red-400/20";
+  if (score >= 70)
+    return "bg-yellow-600/20 text-yellow-100 border border-yellow-400/20";
+  return "bg-green-600/20 text-green-100 border border-green-400/20";
+}
 
 export default function DashboardPage() {
-  // In a real app, this would come from state/props/API
-  const startups = [];
+  const topStartup = [...mockStartups].sort((a, b) => b.score - a.score)[0];
+  const activeCount = mockStartups.filter((startup) =>
+    ["building", "live", "scaling"].includes(startup.stage)
+  ).length;
 
   return (
-    <main className="min-h-screen bg-gray-900 text-white p-8">
-      <h1 className="mb-12 text-4xl font-bold">Founder Command</h1>
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.10),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
+      <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
+        <a
+          href="/"
+          className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:bg-white/[0.07]"
+        >
+          ← Back to FoundersKingdom
+        </a>
 
-      {/* 1. Startup Portfolio Overview */}
-      <section className="mb-16">
-        {startups.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-20 text-center">
-            <p className="text-xl text-gray-400 mb-8 max-w-md">
-              Your startup portfolio is empty.
-            </p>
-            <button 
-              className="bg-white text-gray-900 hover:bg-gray-100 font-medium px-8 py-3 rounded-full transition-all duration-200 transform hover:scale-105"
-              onClick={() => { /* Handle create startup logic */ }}
-            >
-              Create your first startup
-            </button>
+        <div className="mt-8">
+          <div className="text-[11px] uppercase tracking-[0.28em] text-emerald-100/72">
+            Founder Command
           </div>
-        ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Existing grid of startups would go here */}
-            {startups.map((startup) => (
-              <div key={startup.id} className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition">
-                <h2 className="text-2xl font-semibold mb-2">{startup.name}</h2>
-                <p className="text-sm text-gray-400 mb-4">Status: {startup.status}</p>
-                <p className="text-5xl font-bold">{startup.score}</p>
+          <h1 className="mt-5 text-4xl font-semibold tracking-[-0.04em] md:text-6xl md:leading-[1.02]">
+            Strategic visibility for your startup portfolio.
+          </h1>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
+            This dashboard shows how FoundersKingdom can evolve into a real founder
+            operating surface for startup portfolios, prioritization, and venture
+            relationships.
+          </p>
+        </div>
+
+        <section className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7">
+            <div className="text-[11px] uppercase tracking-[0.26em] text-white/34">
+              Active startups
+            </div>
+            <div className="mt-4 text-5xl font-semibold tracking-tight">{activeCount}</div>
+          </div>
+
+          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7">
+            <div className="text-[11px] uppercase tracking-[0.26em] text-white/34">
+              Highest leverage
+            </div>
+            <div className="mt-4 text-2xl font-semibold tracking-tight">
+              {topStartup?.name}
+            </div>
+            <div className="mt-2 text-sm text-white/48">
+              Score {topStartup?.score} · {priorityLabel(topStartup?.score ?? 0)}
+            </div>
+          </div>
+
+          <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7">
+            <div className="text-[11px] uppercase tracking-[0.26em] text-white/34">
+              Strategic focus
+            </div>
+            <div className="mt-4 text-2xl font-semibold tracking-tight">
+              Narrow to one core build lane
+            </div>
+            <div className="mt-2 text-sm text-white/48">
+              Use scoring and momentum together to decide what gets focus now.
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
+          <div className="max-w-3xl">
+            <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
+              Startup scoring system
+            </div>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
+              Score, stage, and momentum in one founder view.
+            </h2>
+          </div>
+
+          <div className="mt-10 space-y-5">
+            {mockStartups.map((startup) => (
+              <div
+                key={startup.id}
+                className="rounded-[28px] border border-white/8 bg-black/20 p-6"
+              >
+                <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <div className="text-2xl font-semibold tracking-tight">{startup.name}</div>
+                    <div className="mt-2 flex flex-wrap items-center gap-3">
+                      <span className="text-sm text-white/48">
+                        {startup.stage} · {startup.category}
+                      </span>
+                      <span
+                        className={`rounded-full px-3 py-1 text-xs ${priorityClasses(
+                          startup.score
+                        )}`}
+                      >
+                        {priorityLabel(startup.score)}
+                      </span>
+                    </div>
+                    <p className="mt-4 max-w-2xl text-sm leading-6 text-white/58">
+                      {startup.description}
+                    </p>
+                  </div>
+
+                  <div className="min-w-[180px]">
+                    <div className="text-sm text-white/48">
+                      Score {startup.score}/100
+                    </div>
+                    <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                      <div
+                        className="h-full rounded-full bg-white"
+                        style={{ width: `${startup.score}%` }}
+                      />
+                    </div>
+                    <div className="mt-3 text-sm text-white/48">
+                      Momentum {startup.momentum}/100
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-        )}
-      </section>
+        </section>
 
-      {/* Other sections would be conditionally hidden when portfolio is empty */}
-      {startups.length > 0 && (
-        <>
-          {/* 2. Momentum Layer */}
-          <section className="mb-16 grid gap-8 md:grid-cols-3">
-            <div className="bg-gray-800 rounded-xl p-6 text-center">
-              <p className="text-sm text-gray-400 mb-2">Active Startups</p>
-              <p className="text-3xl font-bold">12</p>
+        <section className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
+            <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
+              Relationship layer
             </div>
-            <div className="bg-gray-800 rounded-xl p-6 text-center">
-              <p className="text-sm text-gray-400 mb-2">Highest Scoring</p>
-              <p className="text-3xl font-bold">Nebula AI (92)</p>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
+              Connected ventures create stronger founder leverage.
+            </h2>
+            <div className="mt-8">
+              <RelationshipMapPreview />
             </div>
-            <div className="bg-gray-800 rounded-xl p-6 text-center">
-              <p className="text-sm text-gray-400 mb-2">Most Active</p>
-              <p className="text-3xl font-bold">Vertex Labs</p>
-            </div>
-          </section>
+          </div>
 
-          {/* 3. Strategic Focus Panel */}
-          <section className="mb-16">
-            <h2 className="mb-4 text-xl font-semibold">Strategic Focus Panel</h2>
-            <p className="text-gray-300 leading-relaxed">
-              Prioritize de‑risking go‑to‑market for Nebula AI, expand Vertex Labs’
-              partnership pipeline, and allocate early‑stage capital to Pulse Finance
-              for product‑market fit validation.
-            </p>
-          </section>
-
-          {/* 4. Relationship Map Preview (placeholder visual block) */}
-          <section className="mb-16">
-            <h2 className="mb-4 text-xl font-semibold">Relationship Map Preview</h2>
-            <div className="bg-gray-800 rounded-xl p-6 h-96 flex items-center justify-center text-gray-500">
-              [Relationship Map Visualization – placeholder]
+          <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
+            <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
+              AI assistant preview
             </div>
-          </section>
-
-          {/* 5. AI Assistant Panel (simple UI placeholder) */}
-          <section>
-            <h2 className="mb-4 text-xl font-semibold">AI Assistant</h2>
-            <div className="bg-gray-800 rounded-xl p-6 space-y-4">
-              <div className="flex items-center space-x-3">
-                <input
-                  type="text"
-                  placeholder="Ask the assistant…"
-                  className="flex-1 bg-gray-700 border border-gray-600 rounded px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded transition"
-                >
-                  Send
-                </button>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
+              Strategic insight, not just startup storage.
+            </h2>
+            <div className="mt-6 space-y-4">
+              <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
+                Focus FoundersKingdom first. It has the strongest leverage profile,
+                highest score, and best ecosystem fit across the current portfolio.
               </div>
-              <p className="text-gray-400 text-sm">
-                Example: “Show me startups with scoring >90 and recent user growth.”
-              </p>
+              <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
+                Redwoud and FoundersKingdom show the strongest compounding relationship
+                through positioning, intelligence, and founder narrative.
+              </div>
+              <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
+                Example prompt: Show me startups with scoring greater than 90 and recent
+                user growth.
+              </div>
             </div>
-          </section>
-        </>
-      )}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

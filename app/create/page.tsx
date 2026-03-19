@@ -1,60 +1,83 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+"use client";
+
+import { useState } from "react";
 
 export default function CreatePage() {
-  const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const navigate = useNavigate();
+  const [submitted, setSubmitted] = useState(false);
 
-  const onSubmit = async (data) => {
-    setLoading(true);
-    // In a real app, this would call an API
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setLoading(false);
-    navigate('/dashboard');
-  };
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitted(true);
+  }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-md overflow-hidden">
-        <div className="bg-gray-200 h-16" />
-        <div className="p-6">
-          <h1 className="text-2xl font-bold mb-4">Create New Project</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">Project Name</label>
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.10),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
+      <div className="mx-auto max-w-4xl px-6 py-8 md:px-8">
+        <a
+          href="/dashboard"
+          className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:bg-white/[0.07]"
+        >
+          ← Back to Dashboard
+        </a>
+
+        <div className="mt-8 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-10">
+          <div className="text-[11px] uppercase tracking-[0.28em] text-emerald-100/72">
+            Create Startup
+          </div>
+          <h1 className="mt-5 text-4xl font-semibold tracking-[-0.04em] md:text-6xl md:leading-[1.02]">
+            Start a new venture record.
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
+            This is the beginning of the real product flow. Capture the core startup
+            information and turn founder thinking into structured portfolio entries.
+          </p>
+
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="mt-8 space-y-4">
               <input
-                {...register('name', { required: true })}
-                className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                placeholder="Project name"
+                type="text"
+                required
+                placeholder="Startup name"
+                className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
               />
-              {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
-            </div>
-            <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">Stage</label>
-              <select
-                {...register('stage', { required: true })}
-                className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-              >
+              <input
+                type="text"
+                placeholder="Category"
+                className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
+              />
+              <select className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none focus:border-emerald-300/30">
                 <option value="idea">Idea</option>
-                <option value="prototype">Prototype</option>
-                <option value="development">Development</option>
-                <option value="launch">Launch</option>
+                <option value="building">Building</option>
+                <option value="live">Live</option>
+                <option value="scaling">Scaling</option>
               </select>
-              {errors.stage && <p className="text-red-500 text-sm">{errors.stage.message}</p>}
+              <textarea
+                placeholder="Description"
+                className="min-h-[180px] w-full rounded-[28px] border border-white/12 bg-white/[0.04] px-6 py-5 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
+              />
+              <button
+                type="submit"
+                className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+              >
+                Create Startup
+              </button>
+            </form>
+          ) : (
+            <div className="mt-8 rounded-[28px] border border-emerald-300/18 bg-emerald-300/[0.08] p-6">
+              <div className="text-[11px] uppercase tracking-[0.26em] text-emerald-100/78">
+                Success
+              </div>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight">
+                Startup record created.
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-white/68">
+                This is a placeholder success state for the MVP product flow. Next step:
+                persist startup records and connect them to the dashboard data layer.
+              </p>
             </div>
-            <button
-              type="submit"
-              className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                loading ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-            >
-              {loading ? 'Creating...' : 'Create Project'}
-            </button>
-          </form>
+          )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
