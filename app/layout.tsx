@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FoundersKingdom",
-  description:
-    "The startup operating system for founders building multiple ventures.",
+  title: "FoundersKingdom - Startup Operating System",
+  description: "The startup operating system for founders building multiple ventures.",
+  keywords: ["startup", "operating system", "founders", "ventures", "business tools"],
+  openGraph: {
+    title: "FoundersKingdom - Startup Operating System",
+    description: "The startup operating system for founders building multiple ventures.",
+    url: "https://founderskingdom.com",
+    image: "https://founderskingdom.com/favicon.ico",
+    type: "website",
+    site_name: "FoundersKingdom"
+  },
+  twitter: {
+    title: "FoundersKingdom - Startup Operating System",
+    description: "The startup operating system for founders building multiple ventures.",
+    url: "https://founderskingdom.com",
+    site: "FoundersKingdom"
+  }
 };
 
 export default function RootLayout({
