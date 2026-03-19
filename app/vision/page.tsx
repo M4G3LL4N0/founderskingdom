@@ -1,3 +1,6 @@
+import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
+
 const visionLayers = [
   {
     title: "Founder OS",
@@ -102,6 +105,8 @@ export default function VisionPage() {
           </div>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

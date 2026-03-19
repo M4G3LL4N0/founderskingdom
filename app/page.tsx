@@ -1,4 +1,5 @@
 import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
 
 const heroSignals = [
   "Multi-venture ready",
@@ -689,64 +690,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 pb-10 pt-6 text-sm text-white/46 md:flex-row md:items-end md:justify-between md:px-8">
-        <div>
-          <div className="text-base font-semibold tracking-tight text-white/84">
-            FoundersKingdom
-          </div>
-          <div className="mt-2 max-w-md leading-6">
-            The startup operating system for founders building multiple ventures.
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-6">
-          <a className="transition hover:text-white" href="/platform">
-            Platform
-          </a>
-          <a className="transition hover:text-white" href="/features">
-            Features
-          </a>
-          <a className="transition hover:text-white" href="/ecosystem">
-            Ecosystem
-          </a>
-          <a className="transition hover:text-white" href="/vision">
-            Vision
-          </a>
-          <a className="transition hover:text-white" href="/about">
-            About
-          </a>
-          <a className="transition hover:text-white" href="/pricing">
-            Pricing
-          </a>
-          <a className="transition hover:text-white" href="/investors">
-            Investors
-          </a>
-          <a className="transition hover:text-white" href="/jobs">
-            Jobs
-          </a>
-          <a className="transition hover:text-white" href="/security">
-            Security
-          </a>
-          <a className="transition hover:text-white" href="/privacy">
-            Privacy
-          </a>
-          <a className="transition hover:text-white" href="/terms">
-            Terms
-          </a>
-          <a className="transition hover:text-white" href="/press">
-            Press
-          </a>
-          <a className="transition hover:text-white" href="/manifesto">
-            Manifesto
-          </a>
-          <a className="transition hover:text-white" href="/changelog">
-            Changelog
-          </a>
-          <a className="transition hover:text-white" href="/contact">
-            Contact
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
