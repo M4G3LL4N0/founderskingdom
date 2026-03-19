@@ -108,8 +108,9 @@ export default function DashboardPage() {
           </h2>
           <div className="space-y-8">
             {startups.map((startup) => (
-              <div
+              <a
                 key={startup.id}
+                href={`/startups/${startup.id}`}
                 className="rounded-[28px] border border-white/8 bg-black/20 p-10"
               >
                 <div className="space-y-6">
@@ -153,7 +154,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </section>
