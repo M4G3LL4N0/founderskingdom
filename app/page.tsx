@@ -1,213 +1,4 @@
-const heroSignals = [
-  "Multi-venture ready",
-  "Portfolio command",
-  "AI-assisted prioritization",
-  "Founder operating system",
-];
-
-const capabilityGroups = [
-  {
-    eyebrow: "Organize and prioritize",
-    title: "Turn startup chaos into portfolio clarity.",
-    description:
-      "FoundersKingdom gives founders a single operating layer for the ventures, products, and strategic bets they are actively building. Instead of scattered documents, isolated task boards, and mental overload, the system brings structure, visibility, and prioritization into one clear founder command layer.",
-    items: [
-      {
-        title: "Startup Portfolio Dashboard",
-        body: "See every active startup, incubation track, side build, and strategic initiative in one unified command view.",
-      },
-      {
-        title: "Multi-Startup Management",
-        body: "Track ventures by stage, momentum, category, and strategic role without losing context across the portfolio.",
-      },
-      {
-        title: "Startup Scoring System",
-        body: "Prioritize what to build next using clearer logic around leverage, timing, market value, and execution fit.",
-      },
-    ],
-  },
-  {
-    eyebrow: "Connect and compound",
-    title: "Build ventures like a system, not a scramble.",
-    description:
-      "The strongest founders do not just launch companies. They build ecosystems. FoundersKingdom helps you connect ventures through audience, infrastructure, workflow, and strategic overlap so each company can strengthen the next instead of competing for attention.",
-    items: [
-      {
-        title: "Relationship Mapping",
-        body: "Visualize how startups connect through audience, data, infrastructure, positioning, and strategic dependency.",
-      },
-      {
-        title: "Founder Workspace",
-        body: "Keep your thinking, planning, operating notes, and venture context in one high-signal founder environment.",
-      },
-      {
-        title: "AI Startup Assistant",
-        body: "Turn raw founder thinking into more structured ventures, clearer strategy, and stronger execution paths.",
-      },
-    ],
-  },
-];
-
-const strategyBands = [
-  {
-    eyebrow: "Why this category exists",
-    title: "The founder stack changed. The operating system did not.",
-    body: "AI increased startup creation speed. More founders now run multiple ventures, experiments, and parallel bets. Most software still assumes one company, one roadmap, and one context. FoundersKingdom is built for the new founder behavior.",
-  },
-  {
-    eyebrow: "What FoundersKingdom unlocks",
-    title: "A cleaner way to think, decide, and build.",
-    body: "The product is not just about tracking startups. It is about reducing strategic sprawl, clarifying portfolio leverage, and helping ambitious founders build companies that compound instead of fragmenting their attention.",
-  },
-];
-
-const philosophyCards = [
-  {
-    title: "Portfolio clarity",
-    body: "See the full map of what you are building without losing signal in scattered tools, tabs, and notes.",
-  },
-  {
-    title: "Strategic prioritization",
-    body: "Make better founder decisions by comparing leverage, timing, momentum, and ecosystem fit in one place.",
-  },
-  {
-    title: "Connected companies",
-    body: "Understand how ventures align, overlap, and compound into a stronger startup ecosystem over time.",
-  },
-];
-
-const comparisonRows = [
-  {
-    left: "Most tools assume one founder equals one company.",
-    right: "FoundersKingdom is built for one founder running many ventures.",
-  },
-  {
-    left: "Ideas, startups, notes, and strategy live in separate places.",
-    right: "Everything lives inside one structured founder operating system.",
-  },
-  {
-    left: "Priority is driven by guesswork and recency bias.",
-    right: "Priority is shaped by scoring, momentum, and ecosystem fit.",
-  },
-  {
-    left: "Ventures compete for attention.",
-    right: "Ventures are mapped as a connected system that compounds.",
-  },
-];
-
-const signalCards = [
-  {
-    label: "Ventures tracked",
-    value: "12",
-    note: "A unified founder portfolio instead of fragmented tools and notes.",
-  },
-  {
-    label: "Priority tracks",
-    value: "03",
-    note: "A cleaner operating picture of what deserves focus right now.",
-  },
-  {
-    label: "Relationship clusters",
-    value: "04",
-    note: "Strategic overlap and compounding pathways made visible.",
-  },
-  {
-    label: "Founder momentum",
-    value: "84",
-    note: "A signal for portfolio movement, intensity, and leverage.",
-  },
-];
-
-const showcaseRows = [
-  { name: "FoundersKingdom", score: "92", stage: "Building", type: "Core system" },
-  { name: "Redwoud", score: "86", stage: "Live", type: "Intelligence layer" },
-  { name: "Noaerth", score: "79", stage: "Holding", type: "Parent company" },
-  { name: "Next Venture", score: "71", stage: "Idea", type: "Incubation track" },
-];
-
-const useCases = [
-  {
-    title: "Solo founder command",
-    body: "Operate multiple ideas, product bets, and launches without losing strategic focus.",
-  },
-  {
-    title: "Venture studio workflow",
-    body: "Track portfolio companies, prioritize internal builds, and make ecosystem relationships visible.",
-  },
-  {
-    title: "AI-native founder stack",
-    body: "Increase startup creation speed without increasing founder chaos.",
-  },
-];
-
-const roadmapCards = [
-  {
-    phase: "Phase 1",
-    title: "Portfolio command",
-    body: "Startup registry, scoring, momentum view, and structured portfolio visibility.",
-  },
-  {
-    phase: "Phase 2",
-    title: "System intelligence",
-    body: "Relationship mapping, founder workspace, AI-assisted prioritization, and strategic recommendations.",
-  },
-  {
-    phase: "Phase 3",
-    title: "Launch infrastructure",
-    body: "Startup generation, execution workflows, automation hooks, and ecosystem-level leverage.",
-  },
-];
-
-const stepGroups = [
-  {
-    step: "01",
-    title: "Create or import startups",
-    body: "Capture every venture, idea, or active company into one structured system.",
-  },
-  {
-    step: "02",
-    title: "Organize and score them",
-    body: "Compare opportunities with clearer prioritization, stage visibility, and strategic weighting.",
-  },
-  {
-    step: "03",
-    title: "Connect ventures together",
-    body: "Map how audience, infrastructure, and positioning reinforce the portfolio as a whole.",
-  },
-  {
-    step: "04",
-    title: "Track growth and momentum",
-    body: "Monitor movement, execution pressure, and strategic progress from one founder command layer.",
-  },
-  {
-    step: "05",
-    title: "Scale your startup ecosystem",
-    body: "Move from isolated startups to a connected operating system for long-term founder leverage.",
-  },
-];
-
-const faqs = [
-  {
-    question: "Who is FoundersKingdom for?",
-    answer:
-      "It is designed for founders, operators, and venture studios building more than one company, product, or strategic bet at a time.",
-  },
-  {
-    question: "Is this just another project management tool?",
-    answer:
-      "No. FoundersKingdom sits above project management. It is for portfolio structure, venture prioritization, relationship mapping, and founder-level decision making.",
-  },
-  {
-    question: "Why does this matter now?",
-    answer:
-      "Because AI increased startup creation speed. Founders can generate more opportunities than ever, but most software still cannot manage that complexity cleanly.",
-  },
-  {
-    question: "What makes it different?",
-    answer:
-      "It helps founders operate multiple ventures as one connected ecosystem instead of treating each startup like an isolated company.",
-  },
-];
+importReact from 'react';
 
 export default function Home() {
   return (
@@ -258,8 +49,7 @@ export default function Home() {
             About
           </a>
           <a className="transition hover:text-white" href="/pricing">
-            Pricing
-          </a>
+            Pricing          </a>
           <a className="transition hover:text-white" href="/security">
             Security
           </a>
@@ -299,6 +89,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Product Theater Section */}
       <section className="relative z-10 mx-auto max-w-7xl px-6 pb-28 pt-14 md:px-8 md:pb-36 md:pt-20">
         <div className="mx-auto max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/15 bg-emerald-300/[0.05] px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-emerald-100/80 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
@@ -462,6 +253,191 @@ export default function Home() {
                     FoundersKingdom helps ambitious founders reduce cognitive sprawl and
                     operate from a cleaner strategic picture.
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Product Theater Section */}
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-28 pt-14 md:px-8 md:pb-36 md:pt-20">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl md:leading-[1.02]">
+            Product Theater
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
+            See your startup ecosystem in action. Watch ventures connect, prioritize, and compound in real-time.
+          </p>
+        </div>
+
+        <div className="mt-16 overflow-hidden rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(7,13,27,0.97),rgba(4,8,17,0.94))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.48)] md:p-8">
+          {/* Fake UI Container */}
+          <div className="relative h-[600px]">
+            {/* Portfolio View */}
+            <div className="absolute inset-0 grid grid-cols-3 gap-4 p-4">
+              {/* Startup Cards */}
+              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500" />
+                  <div>
+                    <h3 className="font-semibold text-white">Nebula AI</h3>
+                    <p className="text-xs text-gray-400">AI Analytics</p>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Stage:</span>
+                    <span className="text-white">Scaling</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Priority:</span>
+                    <span className="text-emerald-400 font-medium">High</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Momentum:</span>
+                    <span className="text-white">84</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-500" />
+                  <div>
+                    <h3 className="font-semibold text-white">Stellar Connect</h3>
+                    <p className="text-xs text-gray-400">Networking Platform</p>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Stage:</span>
+                    <span className="text-white">Growth</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Priority:</span>
+                    <span className="text-yellow-400 font-medium">Medium</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Momentum:</span>
+                    <span className="text-white">72</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-500" />
+                  <div>
+                    <h3 className="font-semibold text-white">CodeForge</h3>
+                    <p className="text-xs text-gray-400">Dev Tools</p>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Stage:</span>
+                    <span className="text-white">MVP</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Priority:</span>
+                    <span className="text-red-400 font-medium">Low</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Momentum:</span>
+                    <span className="text-white">58</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Connections */}
+            <div className="absolute inset-0 flex flex-col items-center gap-4 p-4">
+              <div className="w-full max-w-md space-y-4">
+                <div className="flex items-center gap-3 p-4 bg-gray-800/30 rounded-xl border border-white/10">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center">
+                    <span className="text-white text-sm">A</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">Alex Chen</h3>
+                    <p className="text-xs text-gray-400">Founder, Nebula AI</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 p-4 bg-gray-800/30 rounded-xl border border-white/10">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
+                    <span className="text-white text-sm">M</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">Maria Gomez</h3>
+                    <p className="text-xs text-gray-400">CEO, Stellar Connect</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 p-4 bg-gray-800/30 rounded-xl border border-white/10">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 flex items-center justify-center">
+                    <span className="text-white text-sm">D</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">David Kim</h3>
+                    <p className="text-xs text-gray-400">CTO, CodeForge</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Startup Nodes */}
+            <div className="absolute inset-0 flex flex-col items-center gap-6 p-4">
+              <div className="flex space-x-6">
+                {/* Node 1 */}
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500/20 backdrop-blur-sm border border-white/10 shadow-inner-lg">
+                    <div className="absolute inset-0 rounded-full border-2 border-white/20" />
+                  </div>
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/80">
+                    Nebula AI
+                  </div>
+                </div>
+                
+                {/* Connection Line 1 */}
+                <div className="h-[2px] w-[60px] bg-gradient-to-r from-emerald-400/30 to-transparent" />
+                
+                {/* Node 2 */}
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-500/20 backdrop-blur-sm border border-white/10 shadow-inner-lg">
+                    <div className="absolute inset-0 rounded-full border-2 border-white/20" />
+                  </div>
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/80">
+                    Stellar Connect                  </div>
+                </div>
+                                {/* Connection Line 2 */}
+                <div className="h-[2px] w-[60px] bg-gradient-to-r from-blue-400/30 to-transparent" />
+                
+                {/* Node 3 */}
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-500/20 backdrop-blur-sm border border-white/10 shadow-inner-lg">
+                    <div className="absolute inset-0 rounded-full border-2 border-white/20" />
+                  </div>
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/80">
+                    CodeForge
+                  </div>
+                </div>
+              </div>
+              
+              {/* Secondary Connections */}
+              <div className="flex space-x-6 mt-4">
+                {/* Nebula to CodeForge */}
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500/20 backdrop-blur-sm border border-white/10 shadow-inner-lg">
+                    <div className="absolute inset-0 rounded-full border-2 border-white/20" />
+                  </div>
+                </div>
+                
+                <div className="h-[2px] w-[60px] bg-gradient-to-r from-emerald-400/20 to-purple-400/20" />
+                
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-500/20 backdrop-blur-sm border border-white/10 shadow-inner-lg">
+                    <div className="absolute inset-0 rounded-full border-2 border-white/20" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -672,8 +648,7 @@ export default function Home() {
             <div className="grid gap-5">
               <div className="rounded-[30px] border border-white/8 bg-white/[0.03] p-6">
                 <div className="text-[11px] uppercase tracking-[0.26em] text-white/35">
-                  Relationship layer
-                </div>
+                  Relationship layer                </div>
                 <div className="mt-5 space-y-4">
                   {[
                     "Shared audience and cross-promotion opportunities",
@@ -692,14 +667,12 @@ export default function Home() {
 
               <div className="rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(16,185,129,0.08),rgba(255,255,255,0.03))] p-6">
                 <div className="text-[11px] uppercase tracking-[0.26em] text-emerald-100/75">
-                  Founder signal
-                </div>
+                  Founder signal                </div>
                 <div className="mt-5 text-2xl font-semibold tracking-tight">
                   Build with more clarity, less fragmentation.
                 </div>
                 <p className="mt-3 text-sm leading-6 text-white/60">
-                  FoundersKingdom helps ambitious founders reduce cognitive sprawl and
-                  operate with a cleaner strategic picture.
+                  FoundersKingdom helps ambitious founders reduce cognitive sprawl and                  operate with a cleaner strategic picture.
                 </p>
               </div>
             </div>
@@ -714,8 +687,7 @@ export default function Home() {
             Built to scale from founder clarity to startup infrastructure.
           </h2>
           <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
-            The long-term vision is not just better organization. It is a founder control
-            layer that can structure ideas, guide strategic decisions, and expand into a
+            The long-term vision is not just better organization. It is a founder control            layer that can structure ideas, guide strategic decisions, and expand into a
             true operating system for venture creation.
           </p>
         </div>
@@ -836,8 +808,7 @@ export default function Home() {
             Use cases
           </a>
           <a className="transition hover:text-white" href="#roadmap">
-            Roadmap
-          </a>
+            Roadmap          </a>
           <a className="transition hover:text-white" href="/platform">
             Platform
           </a>
@@ -845,8 +816,7 @@ export default function Home() {
             Features
           </a>
           <a className="transition hover:text-white" href="/ecosystem">
-            Ecosystem
-          </a>
+            Ecosystem          </a>
           <a className="transition hover:text-white" href="/vision">
             Vision
           </a>
@@ -857,8 +827,7 @@ export default function Home() {
             Pricing
           </a>
           <a className="transition hover:text-white" href="/security">
-            Security
-          </a>
+            Security          </a>
           <a className="transition hover:text-white" href="/privacy">
             Privacy
           </a>
