@@ -1,4 +1,5 @@
-import { mockStartups } from "@/lib/startups";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import RelationshipMapPreview from "@/components/relationship-map-preview";
 
 function priorityLabel(score: number) {
@@ -15,10 +16,24 @@ function priorityClasses(score: number) {
 }
 
 export default function DashboardPage() {
-  const topStartup = [...mockStartups].sort((a, b) => b.score - a.score)[0];
-  const activeCount = mockStartups.filter((startup) =>
-    ["building", "live", "scaling"].includes(startup.stage)
-  ).length;
+  const router = useRouter();
+  const [startups, setStartups] = useState<Startup[]>([]);
+  const [activeCount, setActiveCount] = useState(0);
+  const [topStartup, setTopStartup] = useState<Startup | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("startups");
+    const localStartups = stored ? JSON.parse(stored) : [];
+    setStartups(localStartups);
+
+    const active = localStartups.filter((startup) =>
+      ["building", "live", "scaling"].includes(startup.stage)
+    );
+    setActiveCount(active.length);
+
+    const sorted = [...localStartups].sort((a, b) => b.score - a.score);
+    setTopStartup(sorted[0] || null);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.10),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
@@ -88,7 +103,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="mt-10 space-y-5">
-            {mockStartups.map((startup) => (
+            {startups.map((startup) => (
               <div
                 key={startup.id}
                 className="rounded-[28px] border border-white/8 bg-black/20 p-6"
