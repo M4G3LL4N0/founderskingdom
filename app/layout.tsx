@@ -1,5 +1,10 @@
+'use client';
+
 import type{ Metadata } from "next";
 import "./globals.css";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { trackPage } from "@/lib/analytics";
 
 export const metadata: Metadata = {
   title: {
@@ -29,6 +34,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    trackPage(pathname);
+  }, [pathname]);
+
   return (
     <html lang="en">
       <body>
