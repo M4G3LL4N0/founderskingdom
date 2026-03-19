@@ -90,7 +90,7 @@ export default function DashboardPage() {
               Strategic focus
             </div>
             <h2 className="mt-5 text-3xl font-bold tracking-[-0.04em]">
-              Narrow to one core build lane            
+              Narrow to one core build lane
             </h2>
             <p className="mt-6 text-base leading-7 text-white/60">
               Use scoring and momentum together to decide what gets focus now.
@@ -140,7 +140,8 @@ export default function DashboardPage() {
                       </span>
                     </div>
                     <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/10">
-                      <div                        className="h-full rounded-full bg-white"
+                      <div
+                        className="h-full rounded-full bg-white"
                         style={{ width: `${startup.score}%` }}
                       />
                     </div>
@@ -171,7 +172,8 @@ export default function DashboardPage() {
 
           <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-10">
             <div className="text-[12px] uppercase tracking-[0.28em] text-white/34 mb-5">
-              AI assistant preview            </div>
+              AI assistant preview
+            </div>
             <h2 className="mb-6 text-2xl font-bold tracking-[-0.04em]">
               Strategic insight, not just startup storage.
             </h2>
@@ -181,7 +183,8 @@ export default function DashboardPage() {
                 highest score, and best ecosystem fit across the current portfolio.
               </div>
               <div className="rounded-[24px] border border-white/8 bg-black/20 p-6 text-sm leading-6 text-white/60">
-                Redwoud and FoundersKingdom show the strongest compounding relationship                through positioning, intelligence, and founder narrative.
+                Redwoud and FoundersKingdom show the strongest compounding relationship
+                through positioning, intelligence, and founder narrative.
               </div>
               <div className="rounded-[24px] border border-white/8 bg-black/20 p-6 text-sm leading-6 text-white/60">
                 Example prompt: Show me startups with scoring greater than 90 and recent
