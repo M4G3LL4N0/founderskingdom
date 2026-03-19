@@ -10,10 +10,12 @@ type CommandAction = {
 
 const ACTIONS: CommandAction[] = [
   { label: "Create startup", href: "/create" },
-  { label: "Go to dashboard", href: "/dashboard" },
-  { label: "Go to platform", href: "/platform" },
-  { label: "Go to ecosystem", href: "/ecosystem" },
-  { label: "Go to waitlist", href: "/waitlist" },
+  { label: "Go to Dashboard", href: "/dashboard" },
+  { label: "Go to Platform", href: "/platform" },
+  { label: "Go to Ecosystem", href: "/ecosystem" },
+  { label: "Go to Waitlist", href: "/waitlist" },
+  { label: "Go to Vision", href: "/vision" },
+  { label: "Go to Pricing", href: "/pricing" },
 ];
 
 export default function CommandBar() {
