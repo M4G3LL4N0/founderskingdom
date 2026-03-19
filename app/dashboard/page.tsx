@@ -1,19 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import RelationshipMapPreview from "@/components/relationship-map-preview";
-
-function priorityLabel(score: number) {
-  if (score >= 85) return "High Priority";
-  if (score >= 70) return "Medium Priority";
-  return "Low Priority";
-}
-
-function priorityClasses(score: number) {
-  if (score >= 85) return "bg-red-600/20 text-red-200 border border-red-400/20";
-  if (score >= 70)
-    return "bg-yellow-600/20 text-yellow-100 border border-yellow-400/20";
-  return "bg-green-600/20 text-green-100 border border-green-400/20";
-}
+import StartupCard from "@/components/startup-card";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -78,7 +66,9 @@ export default function DashboardPage() {
               {topStartup?.name}
             </div>
             <div className="mt-3 text-sm text-white/48">
-              Score {topStartup?.score} · {priorityLabel(topStartup?.score ?? 0)}
+              Score {topStartup?.score} · 
+              {topStartup?.score >= 85 ? "High Priority" : 
+               topStartup?.score >= 70 ? "Medium Priority" : "Low Priority"}
             </div>
           </div>
         </section>
@@ -113,47 +103,7 @@ export default function DashboardPage() {
                 href={`/startups/${startup.id}`}
                 className="rounded-[28px] border border-white/8 bg-black/20 p-10"
               >
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-2xl font-bold tracking-tight">{startup.name}</div>
-                    <div className="mt-3 flex flex-wrap items-center gap-4">
-                      <span className="text-sm text-white/48">
-                        {startup.stage} · {startup.category}
-                      </span>
-                      <span
-                        className={`rounded-full px-4 py-2 text-xs ${priorityClasses(
-                          startup.score
-                        )}`}
-                      >
-                        {priorityLabel(startup.score)}
-                      </span>
-                    </div>
-                    <p className="mt-4 text-sm leading-6 text-white/58">
-                      {startup.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm text-white/48">
-                      <span>Score {startup.score}/100</span>
-                      <span className={priorityClasses(startup.score)}>
-                        {priorityLabel(startup.score)}
-                      </span>
-                    </div>
-                    <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/10">
-                      <div
-                        className="h-full rounded-full bg-white"
-                        style={{ width: `${startup.score}%` }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-between text-sm text-white/48">
-                      <span>Momentum {startup.momentum}/100</span>
-                      <span className="text-white/60">
-                        {startup.momentum}%
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                <StartupCard startup={startup} compact={false} />
               </a>
             ))}
           </div>
@@ -184,8 +134,7 @@ export default function DashboardPage() {
                 highest score, and best ecosystem fit across the current portfolio.
               </div>
               <div className="rounded-[24px] border border-white/8 bg-black/20 p-6 text-sm leading-6 text-white/60">
-                Redwoud and FoundersKingdom show the strongest compounding relationship
-                through positioning, intelligence, and founder narrative.
+                Redwoud and FoundersKingdom show the strongest compounding relationship                through positioning, intelligence, and founder narrative.
               </div>
               <div className="rounded-[24px] border border-white/8 bg-black/20 p-6 text-sm leading-6 text-white/60">
                 Example prompt: Show me startups with scoring greater than 90 and recent
