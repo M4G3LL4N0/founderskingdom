@@ -8,6 +8,7 @@ export default function DashboardPage() {
   const [startups, setStartups] = useState<Startup[]>([]);
   const [activeCount, setActiveCount] = useState(0);
   const [topStartup, setTopStartup] = useState<Startup | null>(null);
+  const [filter, setFilter] = useState<'All' | 'Idea' | 'Building' | 'Live' | 'Scaling'>('All');
 
   useEffect(() => {
     const stored = localStorage.getItem("startups");
@@ -22,6 +23,10 @@ export default function DashboardPage() {
     const sorted = [...localStartups].sort((a, b) => b.score - a.score);
     setTopStartup(sorted[0] || null);
   }, []);
+
+  const filteredStartups = filter === 'All'
+    ? startups
+    : startups.filter(startup => startup.stage === filter.toLowerCase());
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.10),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
@@ -91,13 +96,26 @@ export default function DashboardPage() {
         {/* Startup Scoring System */}
         <section className="mb-20">
           <div className="text-[12px] uppercase tracking-[0.28em] text-white/34 mb-6">
-            Startup scoring system
+            Startup scoring system          </div>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {['All', 'Idea', 'Building', 'Live', 'Scaling'].map((option) => (
+              <button
+                key={option}
+                onClick={() => setFilter(option as any)}
+                className={`px-3 py-1.5 text-sm rounded-full transition-colors 
+                  ${filter === option 
+                    ? 'bg-white/[0.08] text-white' 
+                    : 'bg-white/[0.02] text-white/60 hover:bg-white/[0.05] hover:text-white'}`}
+              >
+                {option}
+              </button>
+            ))}
           </div>
           <h2 className="mb-8 text-3xl font-bold tracking-[-0.04em]">
             Score, stage, and momentum in one founder view.
           </h2>
           <div className="space-y-8">
-            {startups.map((startup) => (
+            {filteredStartups.map((startup) => (
               <a
                 key={startup.id}
                 href={`/startups/${startup.id}`}
