@@ -263,6 +263,15 @@ export default function Home() {
           <a className="transition hover:text-white" href="/security">
             Security
           </a>
+          <a className="transition hover:text-white" href="/privacy">
+            Privacy
+          </a>
+          <a className="transition hover:text-white" href="/terms">
+            Terms
+          </a>
+          <a className="transition hover:text-white" href="/press">
+            Press
+          </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
           </a>
@@ -849,6 +858,15 @@ export default function Home() {
           </a>
           <a className="transition hover:text-white" href="/security">
             Security
+          </a>
+          <a className="transition hover:text-white" href="/privacy">
+            Privacy
+          </a>
+          <a className="transition hover:text-white" href="/terms">
+            Terms
+          </a>
+          <a className="transition hover:text-white" href="/press">
+            Press
           </a>
           <a className="transition hover:text-white" href="/manifesto">
             Manifesto
