@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import type{ Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FoundersKingdom - Startup Operating System",
+  title: {
+    template: '%s | FoundersKingdom',
+    default: 'FoundersKingdom - Startup Operating System'
+  },
   description: "The startup operating system for founders building multiple ventures.",
   keywords: ["startup", "operating system", "founders", "ventures", "business tools"],
   openGraph: {
@@ -62,8 +65,7 @@ export default function RootLayout({
           id="mobile-menu"
         >
           <div className="container mx-auto px-4 py-4">
-            <button 
-              className="text-gray-700 flex items-center space-x-2"
+            <button               className="text-gray-700 flex items-center space-x-2"
               onClick={() => document.getElementById("mobile-menu")?.classList.toggle("hidden")}
             >
               <svg className="h-6 w-6" fill="none" stroke="currentColor">
