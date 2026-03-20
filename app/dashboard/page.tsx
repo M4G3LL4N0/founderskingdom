@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { EmptyState } from "@/components/empty-state";
 import { useRouter } from "next/navigation";
 import RelationshipMapPreview from "@/components/relationship-map-preview";
 import StartupCard from "@/components/startup-card";
@@ -115,15 +116,26 @@ export default function DashboardPage() {
             Score, stage, and momentum in one founder view.
           </h2>
           <div className="space-y-8">
-            {filteredStartups.map((startup) => (
-              <a
-                key={startup.id}
-                href={`/startups/${startup.id}`}
-                className="rounded-[28px] border border-white/8 bg-black/20 p-10"
-              >
-                <StartupCard startup={startup} compact={false} />
-              </a>
-            ))}
+            {filteredStartups.length > 0 ? (
+              filteredStartups.map((startup) => (
+                <a
+                  key={startup.id}
+                  href={`/startups/${startup.id}`}
+                  className="rounded-[28px] border border-white/8 bg-black/20 p-10"
+                >
+                  <StartupCard startup={startup} compact={false} />
+                </a>
+              ))
+            ) : (
+              <EmptyState
+                title="No Startups Found"
+                body={filter === 'All' 
+                  ? "You haven't added any startups yet. Create your first startup to begin tracking your portfolio."
+                  : `No startups found in the ${filter} stage. Try adjusting your filters.`}
+                ctaLabel="Create Startup"
+                ctaHref="/create"
+              />
+            )}
           </div>
         </section>
 
