@@ -1,5 +1,8 @@
 import SiteHeader from '@/components/site-header';
 import SiteFooter from '@/components/site-footer';
+import CommandBar from '@/components/command-bar';
+import RelationshipMapPreview from '@/components/relationship-map-preview';
+import FeatureBand from '@/components/feature-band';
 
 const layers = [
   {
@@ -8,7 +11,7 @@ const layers = [
     body: "Think of your entire ecosystem as a single, organized portfolio. Track progress, momentum, and strategic alignment across multiple ventures simultaneously."
   },
   {
-    title: "Relationship Layer", 
+    title: "Relationship Layer",
     description: "Visualize connections between ventures and stakeholders.",
     body: "See how your ventures connect through shared audiences, infrastructure, and strategic overlap. Understand the ecosystem as an interconnected system rather than isolated projects."
   },
@@ -25,7 +28,7 @@ const philosophyPoints = [
     body: "Reduce cognitive load by providing structure without overwhelming detail."
   },
   {
-    title: "Connection over isolation", 
+    title: "Connection over isolation",
     body: "Ventures don't exist in silos. The platform reveals relationships and dependencies."
   },
   {
@@ -86,34 +89,24 @@ export default function PlatformPage() {
           <h2 className="text-5xl font-light mb-16 text-center">Core Layers</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {layers.map((layer, index) => (
-              <div key={index} className="border border-gray-800 rounded-lg p-8">
-                <h3 className="text-2xl font-light mb-4">{layer.title}</h3>
-                <p className="text-gray-400 mb-6">{layer.description}</p>
-                <p className="text-gray-300 leading-relaxed">{layer.body}</p>
-              </div>
+              <FeatureBand key={index} eyebrow={layer.title} title={layer.title} description={layer.description} body={layer.body} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Product Philosophy */}
+      {/* Command Center */}
       <section className="min-h-screen flex items-center px-6">
         <div className="max-w-6xl">
-          <h2 className="text-5xl font-light mb-16 text-center">Product Philosophy</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {philosophyPoints.map((point, index) => (
-              <div key={index}>
-                <h3 className="text-3xl font-light mb-6">{point.title}</h3>
-                <p className="text-lg text-gray-300 leading-relaxed">{point.body}</p>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-5xl font-light mb-16 text-center">Command Center</h2>
+          <CommandBar />
         </div>
       </section>
 
-      {/* Visual Blocks */}
+      {/* Workflow Sequence */}
       <section className="min-h-screen flex items-center px-6">
         <div className="max-w-6xl">
+          <h2 className="text-5xl font-light mb-16 text-center">Workflow Sequence</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
               <div className="text-center">
@@ -125,6 +118,45 @@ export default function PlatformPage() {
               <div className="text-center">
                 <h3 className="text-3xl font-light mb-4">Relationship Mapping</h3>
                 <p className="text-gray-400">Visual connections between ventures</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Philosophy */}
+      <section className="min-h-screen flex items-center px-6">
+        <div className="max-w-6xl">
+          <h2 className="text-5xl font-light mb-16 text-center">Product Philosophy</h2>
+          <div className="grid md:grid-cols-3 gap-12">
+            {philosophyPoints.map((point, index) => (
+              <FeatureBand key={index} eyebrow={point.title} title={point.title} description={point.body} body={point.body} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="min-h-screen flex items-center px-6">
+        <div className="max-w-6xl">
+          <h2 className="text-5xl font-light mb-16 text-center">Get Started</h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
+              <div className="text-center">
+                <h3 className="text-3xl font-light mb-4">Start Your Free Trial</h3>
+                <p className="text-gray-400">Explore the Founder Operating System with our 14-day free trial</p>
+                <button className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-medium">
+                  Start Free Trial
+                </button>
+              </div>
+            </div>
+            <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
+              <div className="text-center">
+                <h3 className="text-3xl font-light mb-4">Request a Demo</h3>
+                <p className="text-gray-400">See how FoundersKingdom can transform your venture management</p>
+                <button className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-medium">
+                  Request Demo
+                </button>
               </div>
             </div>
           </div>
