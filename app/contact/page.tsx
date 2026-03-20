@@ -68,18 +68,33 @@ export default function ContactPage() {
             founder contact, waitlist interest, and strategic conversations.
           </p>
 
-          <form className="mt-8 space-y-4">
+          <form 
+            className="mt-8 space-y-4"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              await saveContactEntry({
+                name: formData.get('name') as string,
+                email: formData.get('email') as string,
+                message: formData.get('message') as string
+              });
+              window.location.href = '/contact/success';
+            }}
+          >
             <input
               type="text"
+              name="name"
               placeholder="Your name"
               className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
             <input
               type="email"
+              name="email"
               placeholder="Your email"
               className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
             <textarea
+              name="message"
               placeholder="What are you building?"
               className="min-h-[180px] w-full rounded-[28px] border border-white/12 bg-white/[0.04] px-6 py-5 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
