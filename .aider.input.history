@@ -1293,3 +1293,831 @@
 
 # 2026-03-19 13:11:46.193047
 +/exit
+
+# 2026-03-19 13:40:52.974839
++Upgrade site generator:
+
+# 2026-03-19 13:40:58.926081
++Instead of single page JSON:
+
+# 2026-03-19 13:41:04.516310
++AIDER PROMPT 41 — WAITLIST TO REAL STORAGE
++
++Upgrade the waitlist system from API stub to file-backed local persistence for development.
++
++Tasks:
++1. Create lib/waitlist-store.ts
++2. Save submissions to a local JSON file in a safe server-side location
++3. Update app/api/waitlist/route.ts to:
++   - validate name/email/company
++   - save entry
++   - return saved entry count
++4. Keep it simple and local-dev friendly
++5. No external dependencies
++6. Do not break Vercel builds if file writing is unavailable; fail gracefully
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 13:41:17.859864
++y
+
+# 2026-03-19 13:41:56.951213
++exit
+
+# 2026-03-19 13:43:30.084324
++/exit
+
+# 2026-03-19 13:43:34.230675
++AIDER PROMPT 42 — CONTACT TO REAL STORAGE
++
++Upgrade app/api/contact/route.ts to save contact submissions locally in development.
++
++Tasks:
++1. Create lib/contact-store.ts
++2. Validate:
++   - name
++   - email
++   - message
++3. Save submissions to local JSON in dev
++4. Fail gracefully in production/serverless if writing is unavailable
++5. Return structured JSON success and error responses
++6. No dependencies
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 13:44:55.834103
++y
+
+# 2026-03-19 14:12:08.031450
++/exit
+
+# 2026-03-19 14:12:23.310613
++AIDER PROMPT 43 — REAL WAITLIST PAGE UX
++
++Upgrade app/waitlist/page.tsx into a polished working client form.
++
++Tasks:
++1. Add "use client"
++2. Connect to /api/waitlist
++3. Add:
++   - loading state
++   - success state
++   - error state
++   - disabled button while loading
++4. Keep premium Apple-like UI
++5. Show success panel inline
++6. Show useful server response if available
++7. No dependencies
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 14:12:26.459715
++y
+
+# 2026-03-19 14:23:02.610988
++/exit
+
+# 2026-03-19 14:25:34.391183
++AIDER PROMPT 45 — CREATE STARTUP TO LOCAL STATE FLOW
++
++Upgrade app/create/page.tsx so it feels closer to a real product flow.
++
++Tasks:
++1. Keep it client-side only
++2. On submit, create a local startup object
++3. Save it to localStorage
++4. Redirect user to /dashboard after success
++5. Add one lightweight success/loading state
++6. No dependencies
++
++Also update dashboard to read startups from localStorage first, then fall back to mockStartups.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 14:26:22.908185
++y
+
+# 2026-03-19 14:31:01.015864
++/exit
+
+# 2026-03-19 14:31:08.632084
++AIDER PROMPT 46 — DASHBOARD 2.0
++
++Upgrade app/dashboard/page.tsx into a more complete Founder Command page.
++
++Add sections:
++1. Hero summary
++2. Portfolio cards
++3. Startup scoring system
++4. Strategic focus panel
++5. Relationship map preview
++6. AI assistant preview
++7. Recent activity section
++8. Quick actions section
++
++Rules:
++- no clutter
++- no external chart libraries
++- premium dark
++- spacing-heavy
++- large cards only
++- use localStorage-created startups if available
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 14:31:42.995538
++y
+
+# 2026-03-19 14:36:18.845145
++/exit
+
+# 2026-03-19 14:36:24.728864
++AIDER PROMPT 47 — QUICK ACTIONS PANEL
++
++Enhance app/dashboard/page.tsx
++
++Add a Quick Actions section with buttons:
++- Create startup
++- View platform
++- View ecosystem
++- Join waitlist
++
++Buttons should be styled as premium large action cards, not plain buttons.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 14:37:25.534862
++y
+
+# 2026-03-19 14:43:23.926451
++continue and finish
+
+# 2026-03-19 14:44:39.246700
++t/exit
+
+# 2026-03-19 14:44:48.796779
++/exit
+
+# 2026-03-19 14:45:08.439007
++AIDER PROMPT 48 — RECENT ACTIVITY MODULE
++
++Enhance dashboard with a "Recent Activity" panel.
++
++Use mock entries such as:
++- Startup created
++- Score updated
++- Relationship mapped
++- New waitlist member
++
++Keep it static for now.
++Design must feel premium and minimal.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 14:45:55.825177
++y
+
+# 2026-03-19 14:49:04.594806
++/exit
+
+# 2026-03-19 14:49:09.529269
++AIDER PROMPT 49 — STARTUP DETAIL PAGE
++
++Create dynamic route:
++app/startups/[id]/page.tsx
++
++Use mockStartups from lib/startups.ts.
++
++Page sections:
++1. startup title
++2. metadata row
++3. description
++4. score and momentum panel
++5. strategic notes panel
++6. related ventures placeholder
++7. CTA back to dashboard
++
++If startup not found, show a premium not-found style panel.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 14:50:24.228965
++y
+
+# 2026-03-19 14:53:03.111638
++/exit
+
+# 2026-03-19 14:53:09.362910
++AIDER PROMPT 50 — LINK DASHBOARD CARDS TO DETAIL PAGES
++
++Update app/dashboard/page.tsx
++
++Each startup card should link to /startups/[id]
++
++Keep all styling intact.
++Do not reduce visual quality.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 14:54:41.096635
++y
+
+# 2026-03-19 15:05:29.863545
++/exit
+
+# 2026-03-19 15:05:33.632209
++AIDER PROMPT 51 — STARTUP CARD COMPONENT
++
++Create reusable component:
++components/startup-card.tsx
++
++Props:
++- startup
++- compact?: boolean
++
++Should support:
++- title
++- stage
++- score
++- momentum
++- category
++- description
++- priority badge
++
++Then refactor dashboard and any relevant pages to use it.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 15:10:03.871658
++y
+
+# 2026-03-19 15:17:51.567862
++/exit
+
+# 2026-03-19 15:17:59.202520
++AIDER PROMPT 52 — PRIORITY BADGE COMPONENT
++
++Create:
++components/priority-badge.tsx
++
++Input:
++- score: number
++
++Output:
++- label + styled badge:
++  - High Priority
++  - Medium Priority
++  - Low Priority
++
++Refactor dashboard and startup-card to use it.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 15:18:38.703570
++yes
+
+# 2026-03-19 15:20:20.433551
++continue
+
+# 2026-03-19 15:21:07.001115
++y
+
+# 2026-03-19 15:22:20.850810
++/exit
+
+# 2026-03-19 15:22:29.348165
++AIDER PROMPT 53 — DASHBOARD FILTER BAR
++
++Upgrade app/dashboard/page.tsx
++
++Add a simple filter bar:
++- All
++- Idea
++- Building
++- Live
++- Scaling
++
++Client-side only.
++No dependencies.
++Keep it elegant and minimal.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 15:22:53.986765
++y
+
+# 2026-03-19 15:25:24.617565
++/exit
+
+# 2026-03-19 15:25:30.825432
++AIDER PROMPT 54 — COMMAND BAR FIX + UPGRADE
++
++Audit and improve components/CommandBar.tsx
++
++Tasks:
++1. Ensure no typing errors
++2. Ensure Next.js app router compatibility
++3. Add actions:
++   - Go to Dashboard
++   - Create Startup
++   - Go to Platform
++   - Go to Ecosystem
++   - Go to Vision
++   - Go to Pricing
++4. Add query filtering
++5. Keep "/" shortcut
++6. Keep premium modal styling
++7. No dependencies
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 15:25:34.883115
++y
+
+# 2026-03-19 15:25:59.676021
++/exit
+
+# 2026-03-19 15:26:05.944649
++AIDER PROMPT 55 — GLOBAL SITE HEADER
++
++Create reusable:
++components/site-header.tsx
++
++Requirements:
++- brand on left
++- nav links
++- CTA on right
++- premium blur background
++- sticky top
++- same aesthetic as homepage
++- support reuse across marketing pages
++
++Then refactor at least:
++- app/page.tsx
++- app/platform/page.tsx
++- app/about/page.tsx
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 15:26:12.384164
++y
+
+# 2026-03-19 16:01:49.617973
++/exit
+
+# 2026-03-19 16:01:52.998765
++AIDER PROMPT 56 — GLOBAL SITE FOOTER
++
++Create reusable:
++components/site-footer.tsx
++
++Requirements:
++- premium minimal footer
++- brand
++- short tagline
++- grouped links
++- consistent styling
++
++Then refactor:
++- app/page.tsx
++- app/platform/page.tsx
++- app/vision/page.tsx
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 16:01:54.566467
++y
+
+# 2026-03-19 16:05:37.072214
++/exit
+
+# 2026-03-19 16:08:02.196642
++AIDER PROMPT 58 — FEATURE BAND COMPONENT
++
++Create:
++components/feature-band.tsx
++
++Props:
++- eyebrow
++- title
++- description
++- items
++
++Items:
++- title
++- body
++
++Use it to refactor homepage capability groups and/or features page.
++
++Keep premium styling.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 16:09:50.913615
++y
+
+# 2026-03-19 17:53:22.381973
++/exit
+
+# 2026-03-19 17:53:27.715937
++AIDER PROMPT 59 — PLATFORM PAGE 3.0
++
++Upgrade app/platform/page.tsx again.
++
++Add:
++1. stronger hero
++2. command center section
++3. core layers section
++4. workflow sequence
++5. product philosophy section
++6. CTA section
++
++Refactor to use reusable components if they exist.
++
++Make it feel like a serious product deep dive.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 17:53:29.537653
++y
+
+# 2026-03-19 17:59:19.720352
++continue and finish
+
+# 2026-03-19 18:09:45.528449
++/exit
+
+# 2026-03-19 18:09:53.022385
++AIDER PROMPT 60 — FEATURES PAGE 3.0
++
++Upgrade app/features/page.tsx
++
++Make it feel like:
++- Apple product page
++- fewer small cards
++- larger grouped sections
++- more narrative
++
++Group features into:
++1. Organize and prioritize
++2. Connect and compound
++3. Build with intelligence
++
++Use large bands instead of flat grid if possible.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:09:54.480439
++y
+
+# 2026-03-19 18:11:22.912716
++/exit
+
+# 2026-03-19 18:11:35.407660
++AIDER PROMPT 61 — PRICING PAGE 2.0
++
++Upgrade app/pricing/page.tsx
++
++Add:
++1. stronger hero
++2. pricing philosophy section
++3. 3-tier comparison
++4. who each plan is for
++5. CTA at bottom
++
++Keep it premium and calm.
++No fake enterprise fluff.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:11:36.646087
++y
+
+# 2026-03-19 18:12:57.551462
++/exit
+
+# 2026-03-19 18:13:08.391640
++AIDER PROMPT 62 — INVESTORS PAGE 3.0
++
++Upgrade app/investors/page.tsx
++
++Add sections:
++1. category thesis
++2. why now
++3. founder behavior shift
++4. moat / retention logic
++5. long-term expansion
++6. investor CTA
++
++Keep factual, strategic, and polished.
++No exaggerated claims.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:13:59.474846
++/exit
+
+# 2026-03-19 18:14:10.897408
++AIDER PROMPT 63 — JOBS PAGE 3.0
++
++Upgrade app/jobs/page.tsx
++
++Add:
++1. stronger hero
++2. why join
++3. open roles
++4. how the team thinks
++5. CTA
++
++Tone:
++- elite
++- ambitious
++- founder-grade
++- not corporate
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:16:00.572840
++/exit
+
+# 2026-03-19 18:16:15.266186
++AIDER PROMPT 64 — MANIFESTO PAGE 3.0
++
++Upgrade app/manifesto/page.tsx
++
++Add:
++1. stronger opening
++2. 5-7 manifesto sections
++3. founder worldview section
++4. closing call to build
++5. premium typography rhythm
++
++Make it read like a serious software company philosophy page.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:16:39.154955
++y
+
+# 2026-03-19 18:18:02.019767
++/exit
+
+# 2026-03-19 18:18:17.294397
++AIDER PROMPT 65 — ABOUT PAGE 2.0
++
++Upgrade app/about/page.tsx
++
++Add:
++1. hero
++2. why FoundersKingdom exists
++3. founder behavior shift
++4. core principles
++5. platform values
++6. CTA
++
++Keep it premium and aligned with the current visual system.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:18:18.510019
++y
+
+# 2026-03-19 18:24:59.146781
++/exit
+
+# 2026-03-19 18:25:08.545352
++AIDER PROMPT 66 — ECOSYSTEM PAGE 3.0
++
++Upgrade app/ecosystem/page.tsx
++
++Add:
++1. stronger hero
++2. ecosystem concept explanation
++3. compounding examples
++4. relationship logic grid
++5. sequencing explanation
++6. CTA
++
++Keep it premium, strategic, and product-oriented.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:25:09.761306
++y
+
+# 2026-03-19 18:27:04.595747
++/exit
+
+# 2026-03-19 18:27:15.306650
++AIDER PROMPT 67 — VISION PAGE 3.0
++
++Upgrade app/vision/page.tsx
++
++Add:
++1. stronger hero
++2. near-term vision
++3. mid-term platform direction
++4. long-term infrastructure thesis
++5. final CTA
++
++Make it feel like a serious company roadmap narrative.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:27:16.415881
++y
+
+# 2026-03-19 18:30:50.777226
++/exit
+
+# 2026-03-19 18:31:05.131029
++AIDER PROMPT 68 — PRESS PAGE 3.0
++
++Upgrade app/press/page.tsx
++
++Add:
++1. company overview
++2. category framing
++3. why now
++4. media angles
++5. contact CTA
++
++Make it useful for storytelling, partnerships, and external communication.
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:31:06.645825
++y
+
+# 2026-03-19 18:39:43.322672
++/exit
+
+# 2026-03-19 18:39:54.076546
++AIDER PROMPT 69 — CHANGELOG PAGE 3.0
++
++Upgrade app/changelog/page.tsx
++
++Add:
++1. better visual hierarchy
++2. release groups
++3. future release note
++4. premium product feel
++5. route links to important pages
++
++Return FULL FILE ONLY.
+
+# 2026-03-19 18:40:03.859571
++y
+
+# 2026-03-19 18:49:32.414603
++/exit
+
+# 2026-03-19 18:49:47.624125
++AIDER PROMPT 70 — PRIVACY / TERMS / SECURITY SYSTEM
++
++Refactor these pages for shared consistency:
++- app/privacy/page.tsx
++- app/terms/page.tsx
++- app/security/page.tsx
++
++Create shared component if useful:
++- components/policy-page-shell.tsx
++
++Goal:
++- consistent visual rhythm
++- premium product-facing policy pages
++- not generic legal clutter
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 18:49:51.788423
++y
+
+# 2026-03-19 18:53:38.491717
++/exit
+
+# 2026-03-19 18:54:15.907167
++AIDER PROMPT 71 — EMPTY STATES SYSTEM
++
++Create:
++components/empty-state.tsx
++
++Props:
++- title
++- body
++- ctaLabel
++- ctaHref
++
++Use it in:
++- dashboard when no local startups exist
++- startup detail page when missing
++- any other appropriate route
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 19:24:40.101096
++y
+
+# 2026-03-19 19:27:09.536344
++/exit
+
+# 2026-03-19 19:27:23.574622
++AIDER PROMPT 72 — REAL WAITLIST SUCCESS REDIRECT
++
++Upgrade waitlist flow:
++
++After successful waitlist submission:
++- save success data locally
++- redirect to new page /waitlist/success
++
++Create:
++app/waitlist/success/page.tsx
++
++Keep premium design and clear success messaging.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 19:29:02.913052
++y
+
+# 2026-03-19 19:35:00.753595
++/exit
+
+# 2026-03-19 19:35:15.475422
++AIDER PROMPT 73 — CONTACT SUCCESS PAGE
++
++Create:
++app/contact/success/page.tsx
++
++Then update contact page to redirect there after successful submit.
++
++Keep it polished, minimal, and aligned with brand.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 19:35:48.446578
++y
+
+# 2026-03-19 19:39:36.842904
++/exit
+
+# 2026-03-19 19:39:50.834453
++AIDER PROMPT 74 — MARKETING CTA CONSISTENCY
++
++Audit major pages and make CTAs consistent.
++
++Pages:
++- homepage
++- platform
++- ecosystem
++- pricing
++- waitlist
++- manifesto
++- vision
++
++Goal:
++- primary CTA usually points to /waitlist
++- secondary CTA usually points to /platform or /dashboard
++- consistent button language
++- consistent visual styling
++
++Return FULL FILES ONLY for changed files.
+
+# 2026-03-19 19:42:09.999964
++y
+
+# 2026-03-19 19:44:08.941204
++/exit
+
+# 2026-03-19 19:44:17.998795
++AIDER PROMPT 75 — FULL ROUTE AUDIT
++
++Audit all app routes for:
++- visual consistency
++- broken imports
++- client/server mismatches
++- unnecessary dependency usage
++- repeated code worth componentizing
++
++Routes to review:
++- app/page.tsx
++- app/dashboard/page.tsx
++- app/platform/page.tsx
++- app/ecosystem/page.tsx
++- app/about/page.tsx
++- app/vision/page.tsx
++- app/features/page.tsx
++- app/pricing/page.tsx
++- app/waitlist/page.tsx
++- app/contact/page.tsx
++- app/manifesto/page.tsx
++
++Fix the most important issues without changing the design direction.
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 19:44:19.227889
++y
+
+# 2026-03-19 19:52:38.869792
++/exit
