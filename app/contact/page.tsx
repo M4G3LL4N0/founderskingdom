@@ -1,5 +1,7 @@
-import { useRouter } from 'next/navigation';
-import { saveContactEntry } from '@/lib/contact-store';
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const reasons = [
   {
@@ -17,6 +19,51 @@ const reasons = [
 ];
 
 export default function ContactPage() {
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data?.ok) {
+        setError(data?.message ?? "Something went wrong.");
+        setLoading(false);
+        return;
+      }
+
+      setSuccess(data?.message ?? "Contact submission received.");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setLoading(false);
+      setTimeout(() => {
+        router.push("/contact/success");
+      }, 600);
+    } catch {
+      setError("Unable to submit your message right now.");
+      setLoading(false);
+    }
+  }
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.12),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
       <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
@@ -71,43 +118,47 @@ export default function ContactPage() {
             founder contact, waitlist interest, and strategic conversations.
           </p>
 
-          <form 
-            className="mt-8 space-y-4"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const formData = new FormData(e.currentTarget);
-              await saveContactEntry({
-                name: formData.get('name') as string,
-                email: formData.get('email') as string,
-                message: formData.get('message') as string
-              });
-              window.location.href = '/contact/success';
-            }}
-          >
+          <form onSubmit={handleSubmit} className="mt-8 space-y-4">
             <input
               type="text"
-              name="name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
               placeholder="Your name"
               className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
             <input
               type="email"
-              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="Your email"
               className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
             <textarea
-              name="message"
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
               placeholder="What are you building?"
               className="min-h-[180px] w-full rounded-[28px] border border-white/12 bg-white/[0.04] px-6 py-5 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
             <button
               type="submit"
-              className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+              disabled={loading}
+              className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
+
+          {error ? (
+            <div className="mt-6 rounded-[22px] border border-red-400/20 bg-red-500/10 px-5 py-4 text-sm text-red-100">
+              {error}
+            </div>
+          ) : null}
+
+          {success ? (
+            <div className="mt-6 rounded-[22px] border border-emerald-400/20 bg-emerald-500/10 px-5 py-4 text-sm text-emerald-100">
+              {success}
+            </div>
+          ) : null}
         </div>
       </section>
     </main>
