@@ -1,3 +1,6 @@
+import { useRouter } from 'next/navigation';
+import { saveContactEntry } from '@/lib/contact-store';
+
 const reasons = [
   {
     title: "Founder access",
