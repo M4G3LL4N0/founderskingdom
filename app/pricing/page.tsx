@@ -84,12 +84,12 @@ export default function PricingPage() {
                   </div>
                 ))}
               </div>
-              <a
+              <Link
                 href="/waitlist"
-                className="mt-8 inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+                className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
               >
                 Join Waitlist
-              </a>
+              </Link>
             </div>
           ))}
         </div>

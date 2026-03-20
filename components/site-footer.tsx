@@ -10,17 +10,10 @@ export default function SiteFooter({ className }: SiteFooterProps) {
     { label: 'Features', href: '/features' },
     { label: 'Ecosystem', href: '/ecosystem' },
     { label: 'Vision', href: '/vision' },
-    { label: 'About', href: '/about' },
     { label: 'Pricing', href: '/pricing' },
-    { label: 'Investors', href: '/investors' },
-    { label: 'Jobs', href: '/jobs' },
-    { label: 'Security', href: '/security' },
+    { label: 'Contact', href: '/contact' },
     { label: 'Privacy', href: '/privacy' },
     { label: 'Terms', href: '/terms' },
-    { label: 'Press', href: '/press' },
-    { label: 'Manifesto', href: '/manifesto' },
-    { label: 'Changelog', href: '/changelog' },
-    { label: 'Contact', href: '/contact' },
   ];
 
   return (

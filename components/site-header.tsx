@@ -13,18 +13,8 @@ export default function SiteHeader({ className = '' }: SiteHeaderProps) {
     { href: '/features', label: 'Features' },
     { href: '/ecosystem', label: 'Ecosystem' },
     { href: '/vision', label: 'Vision' },
-    { href: '/about', label: 'About' },
     { href: '/pricing', label: 'Pricing' },
-    { href: '/investors', label: 'Investors' },
-    { href: '/jobs', label: 'Jobs' },
-    { href: '/security', label: 'Security' },
-    { href: '/privacy', label: 'Privacy' },
-    { href: '/terms', label: 'Terms' },
-    { href: '/press', label: 'Press' },
-    { href: '/manifesto', label: 'Manifesto' },
-    { href: '/changelog', label: 'Changelog' },
     { href: '/contact', label: 'Contact' },
-    { href: '/dashboard', label: 'Dashboard' },
   ];
 
   return (
