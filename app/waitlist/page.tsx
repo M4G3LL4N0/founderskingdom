@@ -92,12 +92,12 @@ export default function WaitlistPage() {
               placeholder="Company or project"
               className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
             />
-            <button
-              type="submit"
+            <a
+              href="/waitlist"
               className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
             >
               Join Waitlist
-            </button>
+            </a>
           </form>
 
           <div className="mt-8 rounded-[26px] border border-white/8 bg-black/20 p-5">

@@ -250,13 +250,13 @@ export default function Home() {
               href="/waitlist"
               className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
             >
-              Join the waitlist
+              Join Waitlist
             </a>
             <a
-              href="#product"
+              href="/platform"
               className="inline-flex min-w-[190px] items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-7 py-3.5 text-sm font-medium text-white/84 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition hover:bg-white/[0.07] hover:text-white"
             >
-              Explore the platform
+              Explore Platform
             </a>
           </div>
         </div>

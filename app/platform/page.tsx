@@ -145,18 +145,24 @@ export default function PlatformPage() {
               <div className="text-center">
                 <h3 className="text-3xl font-light mb-4">Start Your Free Trial</h3>
                 <p className="text-gray-400">Explore the Founder Operating System with our 14-day free trial</p>
-                <button className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-medium">
-                  Start Free Trial
-                </button>
+                <a 
+                  href="/waitlist"
+                  className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+                >
+                  Join Waitlist
+                </a>
               </div>
             </div>
             <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
               <div className="text-center">
                 <h3 className="text-3xl font-light mb-4">Request a Demo</h3>
                 <p className="text-gray-400">See how FoundersKingdom can transform your venture management</p>
-                <button className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-medium">
-                  Request Demo
-                </button>
+                <a
+                  href="/platform"
+                  className="mt-6 inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-8 py-3 text-base font-medium text-white/84 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition hover:bg-white/[0.07] hover:text-white"
+                >
+                  Explore Platform
+                </a>
               </div>
             </div>
           </div>

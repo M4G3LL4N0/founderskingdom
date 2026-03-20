@@ -79,6 +79,20 @@ export default function VisionPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <div className="mt-10 flex justify-center gap-4">
+          <a
+            href="/waitlist"
+            className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+          >
+            Join Waitlist
+          </a>
+          <a
+            href="/platform"
+            className="inline-flex min-w-[190px] items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-7 py-3.5 text-sm font-medium text-white/84 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition hover:bg-white/[0.07] hover:text-white"
+          >
+            Explore Platform
+          </a>
+        </div>
         <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.025))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.34)] md:p-10">
           <div className="max-w-3xl">
             <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
