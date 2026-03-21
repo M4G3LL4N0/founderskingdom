@@ -67,7 +67,7 @@ export default function FeaturesPage() {
       <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
         <a
           href="/"
-          className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:bg-white/[0.07]"
+          className="fk-button fk-button-secondary fk-button-sm"
         >
           ← Back to FoundersKingdom
         </a>
