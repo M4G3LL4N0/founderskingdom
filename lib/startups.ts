@@ -8,6 +8,7 @@ export type Startup = {
   momentum: number;
   category: string;
   description: string;
+  createdAt: string;
 };
 
 export const mockStartups: Startup[] = [
