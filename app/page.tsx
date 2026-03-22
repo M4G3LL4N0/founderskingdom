@@ -121,12 +121,7 @@ const signalCards = [
   },
 ];
 
-const showcaseRows = [
-  { name: "FoundersKingdom", score: "92", stage: "Building", type: "Core system" },
-  { name: "Redwoud", score: "86", stage: "Live", type: "Intelligence layer" },
-  { name: "Noaerth", score: "79", stage: "Holding", type: "Parent company" },
-  { name: "Next Venture", score: "71", stage: "Idea", type: "Incubation track" },
-];
+const featuredVentures = mockStartups;
 
 const useCases = [
   {
@@ -514,35 +509,36 @@ export default function Home() {
         </div>
 
         <div className="mt-14 overflow-hidden rounded-[38px] border border-white/10 bg-[linear-gradient(180deg,rgba(7,13,27,0.97),rgba(4,8,17,0.94))] p-5 shadow-[0_40px_120px_rgba(0,0,0,0.48)] md:p-7">
-          <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-[30px] border border-white/8 bg-white/[0.03] p-6">
-              <div className="text-[11px] uppercase tracking-[0.26em] text-white/35">
-                Ecosystem view
-              </div>
-
-              <div className="mt-5 overflow-hidden rounded-[24px] border border-white/8 bg-black/20">
-                <div className="grid grid-cols-[1.2fr_0.7fr_0.7fr_0.8fr] border-b border-white/8 px-4 py-3 text-[11px] uppercase tracking-[0.22em] text-white/34">
-                  <div>Venture</div>
-                  <div>Score</div>
-                  <div>Stage</div>
-                  <div>Type</div>
-                </div>
-
-                {showcaseRows.map((row, index) => (
-                  <div
-                    key={row.name}
-                    className={`grid grid-cols-[1.2fr_0.7fr_0.7fr_0.8fr] px-4 py-4 text-sm ${
-                      index !== showcaseRows.length - 1 ? "border-b border-white/8" : ""
-                    }`}
-                  >
-                    <div className="font-medium text-white/88">{row.name}</div>
-                    <div className="text-white/58">{row.score}</div>
-                    <div className="text-white/58">{row.stage}</div>
-                    <div className="text-white/58">{row.type}</div>
-                  </div>
-                ))}
-              </div>
+          <div className="rounded-[30px] border border-white/8 bg-white/[0.03] p-6">
+            <div className="text-[11px] uppercase tracking-[0.26em] text-white/35">
+              Active Ecosystem
             </div>
+                
+            <div className="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {featuredVentures.map((venture) => (
+                <a
+                  key={venture.id}
+                  href={`/startups/${venture.id}`}
+                  className="rounded-[24px] border border-white/8 bg-black/20 p-5 transition-all hover:bg-white/[0.03]"
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-medium text-white/88">{venture.name}</h3>
+                    <span className={`rounded-full px-2 py-1 text-xs ${
+                      venture.score >= 85
+                        ? "bg-red-600/20 text-red-200"
+                        : venture.score >= 70
+                        ? "bg-yellow-600/20 text-yellow-100"
+                        : "bg-green-600/20 text-green-100"
+                    }`}>
+                      {venture.stage.charAt(0).toUpperCase() + venture.stage.slice(1)}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm text-white/58">{venture.category}</p>
+                  <p className="mt-3 text-sm leading-6 text-white/58">{venture.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
 
             <div className="grid gap-5">
               <div className="rounded-[30px] border border-white/8 bg-white/[0.03] p-6">
