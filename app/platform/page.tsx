@@ -43,127 +43,112 @@ export default function PlatformPage() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6">
+      <section className="min-h-[120vh] flex items-center justify-center px-6">
         <div className="max-w-6xl text-center">
           <div className="text-sm uppercase tracking-[0.2em] text-gray-400 mb-8">
             The Founder Operating System
           </div>
           <h1 className="text-[5rem] md:text-[7rem] font-light tracking-tight leading-[0.9] mb-12">
-            Think in<br />portfolios
+            Think in<br />Portfolios
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             A structured approach to building and managing multiple ventures
           </p>
-        </div>
-      </section>
-
-      {/* System Explanation */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <h2 className="text-4xl font-light mb-6">Portfolio Thinking</h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Move beyond single-company mindset. Treat your entire ecosystem as a unified portfolio where resources, attention, and strategy flow between connected ventures.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-4xl font-light mb-6">Multiple Startups</h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Track progress, milestones, and strategic priorities across all your ventures simultaneously. Know where to focus and when to pivot.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-4xl font-light mb-6">Connected Ventures</h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Understand how your ventures share audiences, infrastructure, and strategic opportunities. Create leverage through intentional connections.
-              </p>
-            </div>
+          <div className="mt-12">
+            <a
+              href="/waitlist"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+            >
+              Join Waitlist →
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Core Layers */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl">
+      {/* Product Layers */}
+      <section className="min-h-screen py-32">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-5xl font-light mb-16 text-center">Core Layers</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {layers.map((layer, index) => (
-              <FeatureBand key={index} eyebrow={layer.title} title={layer.title} description={layer.description} body={layer.body} />
+              <div key={index} className="space-y-6">
+                <div className="text-sm uppercase tracking-widest text-gray-400">
+                  {layer.title}
+                </div>
+                <h3 className="text-3xl font-light">{layer.description}</h3>
+                <p className="text-gray-300 leading-relaxed">{layer.body}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Command Center */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl">
+      {/* Command Center Preview */}
+      <section className="min-h-screen py-32">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-5xl font-light mb-16 text-center">Command Center</h2>
-          <CommandBar />
+          <div className="bg-gray-900 rounded-2xl p-8">
+            <CommandBar />
+          </div>
         </div>
       </section>
 
-      {/* Workflow Sequence */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl">
+      {/* Founder Workflow Sequence */}
+      <section className="min-h-screen py-32">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-5xl font-light mb-16 text-center">Workflow Sequence</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <h3 className="text-3xl font-light mb-4">Portfolio Dashboard</h3>
-                <p className="text-gray-400">Unified view of all ventures</p>
-              </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-gray-900 rounded-2xl p-8">
+              <h3 className="text-3xl font-light mb-4">Portfolio Dashboard</h3>
+              <p className="text-gray-400">Unified view of all ventures</p>
             </div>
-            <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <h3 className="text-3xl font-light mb-4">Relationship Mapping</h3>
-                <p className="text-gray-400">Visual connections between ventures</p>
-              </div>
+            <div className="bg-gray-900 rounded-2xl p-8">
+              <h3 className="text-3xl font-light mb-4">Relationship Mapping</h3>
+              <p className="text-gray-400">Visual connections between ventures</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Product Philosophy */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl">
+      <section className="min-h-screen py-32">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-5xl font-light mb-16 text-center">Product Philosophy</h2>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {philosophyPoints.map((point, index) => (
-              <FeatureBand key={index} eyebrow={point.title} title={point.title} description={point.body} body={point.body} />
+              <div key={index} className="space-y-6">
+                <h3 className="text-3xl font-light">{point.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{point.body}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl">
+      <section className="min-h-screen py-32">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-5xl font-light mb-16 text-center">Get Started</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <h3 className="text-3xl font-light mb-4">Start Your Free Trial</h3>
-                <p className="text-gray-400">Explore the Founder Operating System with our 14-day free trial</p>
-                <a 
-                  href="/waitlist"
-                  className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
-                >
-                  Join Waitlist
-                </a>
-              </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-gray-900 rounded-2xl p-8">
+              <h3 className="text-3xl font-light mb-4">Start Your Free Trial</h3>
+              <p className="text-gray-400 mb-6">Explore the Founder Operating System with our 14-day free trial</p>
+              <a 
+                href="/waitlist"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
+              >
+                Join Waitlist →
+              </a>
             </div>
-            <div className="h-[60vh] bg-gray-900 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <h3 className="text-3xl font-light mb-4">Request a Demo</h3>
-                <p className="text-gray-400">See how FoundersKingdom can transform your venture management</p>
-                <a
-                  href="/platform"
-                  className="mt-6 inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-8 py-3 text-base font-medium text-white/84 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition hover:bg-white/[0.07] hover:text-white"
-                >
-                  Explore Platform
-                </a>
-              </div>
+            <div className="bg-gray-900 rounded-2xl p-8">
+              <h3 className="text-3xl font-light mb-4">Request a Demo</h3>
+              <p className="text-gray-400 mb-6">See how FoundersKingdom can transform your venture management</p>
+              <a
+                href="/platform"
+                className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-8 py-3 text-base font-medium text-white/84 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition hover:bg-white/[0.07] hover:text-white"
+              >
+                Explore Platform →
+              </a>
             </div>
           </div>
         </div>
