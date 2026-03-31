@@ -19,7 +19,6 @@ export default function HomePage() {
               The operating system for ambitious founders
             </p>
           </div>
-          </div>
         </section>
 
         {/* Feature Band */}
