@@ -1,6 +1,7 @@
 import SiteHeader from '@/components/site-header';
 import SiteFooter from '@/components/site-footer';
 import { mockStartups } from '@/lib/startups';
+import { mockStartups } from '@/lib/startups';
 
 const heroSignals = [
   "Multi-venture ready",
