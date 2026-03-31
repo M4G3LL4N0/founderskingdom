@@ -122,7 +122,7 @@ const signalCards = [
   },
 ];
 
-const featuredVentures = mockStartups;
+const featuredVentures: Startup[] = mockStartups;
 
 const useCases = [
   {
