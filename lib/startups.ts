@@ -11,7 +11,7 @@ export type Startup = {
   createdAt: string;
 };
 
-export const mockStartups: Startup[] = [
+export const mockStartups: readonly Startup[] = [
   {
     id: "fk",
     name: "FoundersKingdom",
