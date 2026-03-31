@@ -538,8 +538,6 @@ export default function Home() {
                 </a>
               ))}
             </div>
-          </div>
-          </div>
 
             <div className="grid gap-5">
               <div className="rounded-[30px] border border-white/8 bg-white/[0.03] p-6">
