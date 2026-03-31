@@ -2121,3 +2121,802 @@
 
 # 2026-03-19 19:52:38.869792
 +/exit
+
+# 2026-03-19 21:00:19.734236
++Fix all primary CTA buttons across the entire app so text is always readable.
++
++Tasks:
++
++1. Find all buttons that use:
++   - bg-white
++   - light backgrounds
++
++2. Ensure text color is:
++   - text-black or text-neutral-900
++
++3. Update ALL "Join the waitlist" buttons specifically:
++   - bg-white
++   - text-black
++   - hover: slightly dim background (bg-white/90 or similar)
++
++4. Create or standardize a reusable class:
++
++.fk-button-primary
++- bg-white
++- text-black
++- font-medium
++- rounded-full
++- proper padding
++- subtle hover state
++
++5. Replace inconsistent button styles across:
++- homepage
++- platform page
++- pricing page
++- waitlist page
++- nav CTA
++
++6. Do NOT change layout or spacing
++7. Do NOT add dependencies
++
++Goal:
++- All primary buttons are clearly readable
++- Consistent premium look
++- Apple-like contrast
++
++Return FULL FILES ONLY.
+
+# 2026-03-19 21:00:39.974092
++y
+
+# 2026-03-19 21:18:53.343611
++/exit
+
+# 2026-03-20 16:05:41.111996
++PROMPT 1 — FIX ALL CLIENT/SERVER BOUNDARIES
++
++Audit the Next.js App Router codebase and fix all client/server boundary issues.
++
++Tasks:
++1. Find every file using:
++   - useState
++   - useEffect
++   - useRouter
++   - usePathname
++   - browser APIs
++2. Add "use client" only where actually needed
++3. Remove client-only logic from server components where possible
++4. Replace invalid next/router usage with next/navigation
++5. Keep metadata exports only in server components
++6. Do not add dependencies
++7. Preserve existing design
++
++Goal:
++- zero client/server component build errors
++- clean App Router architecture
++
++Return FULL FILES ONLY.
+
+# 2026-03-20 16:05:42.649185
++y
+
+# 2026-03-20 16:09:50.223028
++/exit
+
+# 2026-03-20 16:09:59.681438
++PROMPT 2 — FULL IMPORT + MODULE AUDIT
++
++Audit the whole repo for broken imports and missing modules.
++
++Tasks:
++1. Find every import that points to:
++   - missing files
++   - wrong casing
++   - old file paths
++   - invalid aliases
++2. Fix all of them
++3. Remove references to files that do not exist
++4. Ensure all imports use the current FoundersKingdom structure
++5. Do not change design unless necessary
++
++Goal:
++- eliminate module not found errors
++- ensure the project builds cleanly
++
++Return FULL FILES ONLY.
+
+# 2026-03-20 16:10:00.812300
++y
+
+# 2026-03-20 16:16:38.828204
++/exit
+
+# 2026-03-20 16:16:50.914790
++aider --model openrouter/deepseek/deepseek-chat
+
+# 2026-03-20 16:16:59.592579
++PROMPT 3 — REMOVE ALL INVALID DEPENDENCIES
++
++Audit the repo and remove any code that depends on packages not installed or not needed.
++
++Focus on:
++- react-hook-form
++- react-router-dom
++- @apollo/client
++- graphql imports
++- any other non-installed packages
++
++Tasks:
++1. Replace these with native React / Next.js solutions
++2. Keep UX premium
++3. No new dependencies
++4. Preserve product direction
++
++Goal:
++- fully self-contained codebase
++- no third-party dependency build failures
++
++Return FULL FILES ONLY.
+
+# 2026-03-20 16:17:20.464013
++y
+
+# 2026-03-20 16:18:18.598894
++yy
+
+# 2026-03-20 16:18:21.520389
++y
+
+# 2026-03-20 16:52:41.048412
++PROMPT 3 — REMOVE ALL INVALID DEPENDENCIES
++
++Audit the repo and remove any code that depends on packages not installed or not needed.
++
++Focus on:
++- react-hook-form
++- react-router-dom
++- @apollo/client
++- graphql imports
++- any other non-installed packages
++
++Tasks:
++1. Replace these with native React / Next.js solutions
++2. Keep UX premium
++3. No new dependencies
++4. Preserve product direction
++
++Goal:
++- fully self-contained codebase
++- no third-party dependency build failures
++
++Return FULL FILES ONLY.
+
+# 2026-03-20 16:52:42.973930
++y
+
+# 2026-03-20 16:52:49.558367
++/finish
+
+# 2026-03-20 16:52:51.698163
++finish
+
+# 2026-03-20 16:52:53.291250
++y
+
+# 2026-03-20 16:52:59.029043
++/exit
+
+# 2026-03-20 16:53:11.308699
++PROMPT 3 — REMOVE ALL INVALID DEPENDENCIES
++
++Audit the repo and remove any code that depends on packages not installed or not needed.
++
++Focus on:
++- react-hook-form
++- react-router-dom
++- @apollo/client
++- graphql imports
++- any other non-installed packages
++
++Tasks:
++1. Replace these with native React / Next.js solutions
++2. Keep UX premium
++3. No new dependencies
++4. Preserve product direction
++
++Goal:
++- fully self-contained codebase
++- no third-party dependency build failures
++
++Return FULL FILES ONLY.
+
+# 2026-03-20 16:53:12.727971
++y
+
+# 2026-03-20 16:57:10.779372
++/run npm install --save-dev prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser
+
+# 2026-03-20 16:57:10.780667
++/run npm install --save-dev prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser
+
+# 2026-03-20 16:57:46.853330
++y
+
+# 2026-03-20 16:58:27.721387
++/exit
+
+# 2026-03-20 16:58:36.844260
++PROMPT 4 — DASHBOARD HARDENING PASS
++
++Refactor app/dashboard/page.tsx into a clean, stable App Router client component.
++
++Requirements:
++1. Add "use client" if needed
++2. Use localStorage safely
++3. Avoid hydration issues
++4. Keep:
++   - scoring section
++   - relationship preview
++   - AI insight
++   - recent activity
++   - quick actions
++5. No broken imports
++6. No invalid JSX
++7. No type errors
++
++Goal:
++- stable dashboard MVP
++- premium UI
++- clean TypeScript
++
++Return FULL FILE ONLY.
+
+# 2026-03-20 16:58:38.936452
++y
+
+# 2026-03-20 17:03:17.532259
++/exit
+
+# 2026-03-20 17:03:31.701577
++PROMPT 5 — WAITLIST PAGE REAL WORKING FLOW
++
++Upgrade app/waitlist/page.tsx into a production-clean client page.
++
++Requirements:
++1. Add "use client"
++2. Controlled fields:
++   - name
++   - email
++   - company
++3. POST to /api/waitlist
++4. loading state
++5. success state
++6. error state
++7. button text must always be readable
++8. no alert()
++9. premium inline feedback panel
++10. no dependencies
++
++Return FULL FILE ONLY.
+
+# 2026-03-20 17:03:33.057442
++y
+
+# 2026-03-20 17:06:17.618919
++/exit
+
+# 2026-03-20 17:06:26.220603
++PROMPT 6 — CONTACT PAGE REAL WORKING FLOW
++
++Upgrade app/contact/page.tsx into a production-clean client page.
++
++Requirements:
++1. Add "use client"
++2. Controlled fields:
++   - name
++   - email
++   - message
++3. POST to /api/contact
++4. loading state
++5. success state
++6. error state
++7. premium inline feedback panel
++8. redirect to /contact/success on success
++9. no dependencies
++
++Return FULL FILE ONLY.
+
+# 2026-03-20 17:06:27.551227
++y
+
+# 2026-03-20 17:09:13.243147
++/exit
+
+# 2026-03-20 17:09:22.214721
++PROMPT 7 — CREATE STARTUP MVP FLOW
++
++Refactor app/create/page.tsx into a stable client page.
++
++Requirements:
++1. Add "use client"
++2. Native React only
++3. No react-hook-form
++4. No react-router-dom
++5. Fields:
++   - name
++   - category
++   - stage
++   - description
++6. On submit:
++   - create local startup object
++   - save to localStorage under fk-startups
++   - show success state
++   - optionally redirect to /dashboard
++7. Keep premium UI
++
++Return FULL FILE ONLY.
+
+# 2026-03-20 17:09:23.383509
++y
+
+# 2026-03-20 17:12:42.374782
++/exit
+
+# 2026-03-20 17:12:51.787731
++PROMPT 8 — GLOBAL BUTTON SYSTEM
++
++Create a consistent button system across the whole project.
++
++Tasks:
++1. Audit all primary buttons
++2. Ensure white buttons always use readable dark text
++3. Standardize:
++   - primary button
++   - secondary button
++   - ghost button
++4. Add reusable classes in globals.css if appropriate
++5. Refactor major pages to use the system
++6. Preserve current premium design
++
++Goal:
++- no unreadable CTAs
++- consistent premium buttons everywhere
++
++Return FULL FILES ONLY.
+
+# 2026-03-20 17:13:16.733370
++y
+
+# 2026-03-22 11:37:26.206831
++/exit
+
+# 2026-03-22 11:41:29.815040
++PROMPT 9 — SITE HEADER SYSTEM
++
++Refactor components/site-header.tsx into a stable reusable client component.
++
++Requirements:
++1. Add "use client"
++2. Use usePathname safely
++3. Support:
++   - active nav state
++   - premium sticky background
++   - consistent CTA button
++4. No build errors
++5. Use across multiple pages where possible
++
++Return FULL FILES ONLY.
+
+# 2026-03-22 11:41:43.739559
++y
+
+# 2026-03-22 11:44:14.222475
++/exit
+
+# 2026-03-22 11:44:32.427054
++PROMPT 10 — SITE FOOTER SYSTEM
++
++Create or refactor components/site-footer.tsx into a clean reusable footer.
++
++Requirements:
++1. premium dark layout
++2. grouped links
++3. brand line
++4. consistent spacing
++5. reuse across major pages
++6. no dependencies
++
++Return FULL FILES ONLY.
+
+# 2026-03-22 11:44:34.535792
++y
+
+# 2026-03-22 11:53:25.219317
++/exit
+
+# 2026-03-22 11:53:40.570183
++PROMPT 11 — COMMAND BAR STABILIZATION
++
++Audit and fix the command bar.
++
++File:
++- components/command-bar.tsx or components/CommandBar.tsx
++
++Requirements:
++1. Normalize file naming and imports
++2. Ensure App Router compatibility
++3. Keep "/" shortcut
++4. query filter
++5. Enter selects first result
++6. no type errors
++7. no invalid event.target typing
++8. premium modal UI
++
++Return FULL FILES ONLY.
+
+# 2026-03-22 11:53:41.952915
++y
+
+# 2026-03-22 12:04:22.030684
++/exit
+
+# 2026-03-22 12:04:36.513726
++PROMPT 12 — FILE CASING AUDIT
++
++Audit the repo for casing mismatches that may break builds.
++
++Examples:
++- CommandBar vs command-bar
++- startup-card vs StartupCard
++- site-header vs SiteHeader
++
++Tasks:
++1. Standardize naming
++2. Update imports everywhere
++3. Prefer lowercase kebab-case filenames for components
++4. Ensure build-safe consistency
++
++Return FULL FILES ONLY.
+
+# 2026-03-22 12:04:41.588657
++y
+
+# 2026-03-22 12:07:11.660962
++yh
+
+# 2026-03-22 12:07:13.021868
++y
+
+# 2026-03-22 12:09:53.135015
++/run git mv components/CommandBar.tsx components/command-bar.tsx
+
+# 2026-03-22 12:09:53.135474
++/run git mv components/CommandBar.tsx components/command-bar.tsx
+
+# 2026-03-22 12:09:53.391920
++/run git mv components/FeatureBand.tsx components/feature-band.tsx
+
+# 2026-03-22 12:09:53.392096
++/run git mv components/FeatureBand.tsx components/feature-band.tsx
+
+# 2026-03-22 12:09:53.601448
++/run git mv components/PageTracker.tsx components/page-tracker.tsx
+
+# 2026-03-22 12:09:53.601586
++/run git mv components/PageTracker.tsx components/page-tracker.tsx
+
+# 2026-03-22 12:09:53.809729
++/run git mv components/RelationshipMapPreview.tsx components/relationship-map-preview.tsx
+
+# 2026-03-22 12:09:53.809871
++/run git mv components/RelationshipMapPreview.tsx components/relationship-map-preview.tsx
+
+# 2026-03-22 12:09:54.010965
++/run git mv components/SiteFooter.tsx components/site-footer.tsx
+
+# 2026-03-22 12:09:54.011504
++/run git mv components/SiteFooter.tsx components/site-footer.tsx
+
+# 2026-03-22 12:09:54.223577
++/run git mv components/SiteHeader.tsx components/site-header.tsx
+
+# 2026-03-22 12:09:54.224423
++/run git mv components/SiteHeader.tsx components/site-header.tsx
+
+# 2026-03-22 12:09:54.429804
++/run git mv components/StartupCard.tsx components/startup-card.tsx
+
+# 2026-03-22 12:09:54.429954
++/run git mv components/StartupCard.tsx components/startup-card.tsx
+
+# 2026-03-22 12:10:23.543489
++y
+
+# 2026-03-22 12:10:37.511381
++/exit
+
+# 2026-03-22 12:10:47.973952
++PROMPT 13 — EMPTY STATE COMPONENT SYSTEM
++
++Create a reusable empty state system.
++
++Files:
++- components/empty-state.tsx
++
++Use it in:
++- dashboard
++- startup detail not found
++- any route that benefits from empty state handling
++
++Requirements:
++- premium visual design
++- title
++- body
++- CTA
++- optional secondary CTA
++- no dependencies
++
++Return FULL FILES ONLY.
+
+# 2026-03-22 12:10:49.392565
++y
+
+# 2026-03-22 15:16:53.240329
++/exit
+
+# 2026-03-22 15:17:04.738725
++We are standardizing the Ventures dataset so it NEVER breaks TypeScript again.
++
++Update ALL ventures so they share a consistent structure:
++
++REQUIRED FIELDS:
++- slug: string
++- name: string
++- category: string
++- status: string
++- stage: string
++- url: string
++- description: string
++- role: string
++
++OPTIONAL FIELDS:
++- tagline?: string
++- focus?: string[]
++
++RULES:
++- EVERY venture MUST include a tagline (even if simple)
++- If missing, generate a clean premium tagline
++- focus should be an array for newer startups
++- Do NOT remove any ventures
++- Do NOT change structure outside this file
++- Keep everything clean and typed
++
++Also ensure export is:
++export const Ventures = [...]
++
++Return FULL FILE ONLY
+
+# 2026-03-22 15:17:18.404003
++/exit
+
+# 2026-03-22 15:17:32.358442
++We are NOT redesigning the homepage.
++
++We are FIXING visibility of new ventures.
++
++DO THIS:
++
++1. Ensure ALL ventures are used:
++   const featuredVentures = Ventures
++
++2. Increase visible grid size (not slice 3–6)
++   Show at least 9–12 ventures
++
++3. Ensure each card includes:
++   - name
++   - description
++   - category
++   - status
++   - link to /ventures/[slug]
++
++4. Add section label above grid:
++   "Active ecosystem"
++
++5. DO NOT remove any existing sections
++6. DO NOT change layout structure
++7. ONLY enhance visibility and density
++
++Return FULL FILE ONLY
+
+# 2026-03-22 15:17:53.507358
++undo what was just done
+
+# 2026-03-22 15:18:41.701267
++y
+
+# 2026-03-23 13:19:12.662361
++/exit
+
+# 2026-03-23 13:19:25.772688
++PROMPT 17 — PLATFORM PAGE 3.0
++
++Upgrade app/platform/page.tsx
++
++Add:
++1. stronger hero
++2. product layers
++3. command center preview
++4. founder workflow sequence
++5. product philosophy
++6. CTA
++
++Requirements:
++- premium Apple-like product page
++- no clutter
++- no broken imports
++- use reusable components if available
++
++Return FULL FILE ONLY.
+
+# 2026-03-23 13:19:27.341258
++y
+
+# 2026-03-24 16:26:25.671371
++/exit
+
+# 2026-03-24 16:26:40.288089
++PROMPT 17 — PLATFORM PAGE 3.0
++
++Upgrade app/platform/page.tsx
++
++Add:
++1. stronger hero
++2. product layers
++3. command center preview
++4. founder workflow sequence
++5. product philosophy
++6. CTA
++
++Requirements:
++- premium Apple-like product page
++- no clutter
++- no broken imports
++- use reusable components if available
++
++Return FULL FILE ONLY.
+
+# 2026-03-24 16:26:53.769793
++y
+
+# 2026-03-30 16:46:16.470009
++Fix the JSX parsing error in founderskingdom/app/page.tsx.
++
++Build error:
++- Parsing ecmascript source code failed
++- Around lines 576–579
++- Error:
++  Expected '</', got 'jsx text'
++
++Tasks:
++1. Open founderskingdom/app/page.tsx
++2. Carefully inspect JSX structure around the error location AND the surrounding sections
++3. Identify:
++   - missing closing tags
++   - extra closing tags
++   - improperly nested elements
++4. Fix the JSX structure with MINIMAL changes
++5. Preserve ALL:
++   - layout
++   - sections
++   - styling
++   - content
++6. Do NOT rewrite the page
++7. After fixing the immediate error, scan the ENTIRE file for any additional JSX integrity issues
++8. Ensure the file is fully valid for Next.js App Router and Turbopack parsing
++
++Goal:
++- eliminate parsing error
++- prevent follow-up JSX errors
++- keep design untouched
++
++Return FULL FILE ONLY.
+
+# 2026-03-30 16:46:46.383620
++reconstruct
+
+# 2026-03-30 16:47:21.500708
++y
+
+# 2026-03-30 16:47:24.550543
++n
+
+# 2026-03-30 16:47:26.838972
++/exit
+
+# 2026-03-30 16:48:24.061655
++Perform a full JSX structural integrity audit on founderskingdom/app/page.tsx.
++
++Tasks:
++1. Validate EVERY JSX block:
++   - <main>
++   - <section>
++   - <div>
++   - fragments
++   - nested layouts
++2. Ensure:
++   - all opening tags have matching closing tags
++   - no extra closing tags
++   - no invalid nesting (e.g., closing parent before child)
++3. Pay special attention to:
++   - large sections (hero, product bands, roadmap, CTA)
++   - deeply nested div structures
++4. Preserve:
++   - all content
++   - all styling
++   - all classNames
++   - all spacing and layout
++5. Do NOT simplify or redesign anything
++6. Only fix structural correctness
++7. Ensure compatibility with:
++   - Next.js App Router
++   - Turbopack parser
++
++Goal:
++- 100% valid JSX structure
++- no parser errors
++- stable build
++
++Return FULL FILE ONLY.
+
+# 2026-03-30 16:49:05.354261
++y
+
+# 2026-03-30 16:51:48.905290
++/exit
+
+# 2026-03-30 17:00:41.378119
++Perform a full JSX structural integrity audit on founderskingdom/app/page.tsx.
++
++Tasks:
++1. Validate EVERY JSX block:
++   - <main>
++   - <section>
++   - <div>
++   - fragments
++   - nested layouts
++2. Ensure:
++   - all opening tags have matching closing tags
++   - no extra closing tags
++   - no invalid nesting (e.g., closing parent before child)
++3. Pay special attention to:
++   - large sections (hero, product bands, roadmap, CTA)
++   - deeply nested div structures
++4. Preserve:
++   - all content
++   - all styling
++   - all classNames
++   - all spacing and layout
++5. Do NOT simplify or redesign anything
++6. Only fix structural correctness
++7. Ensure compatibility with:
++   - Next.js App Router
++   - Turbopack parser
++
++Goal:
++- 100% valid JSX structure
++- no parser errors
++- stable build
++
++Return FULL FILE ONLY.
+
+# 2026-03-30 17:02:19.117275
++1
+
+# 2026-03-30 17:02:56.400318
++y
+
+# 2026-03-30 17:03:28.259333
++do all of those for what will look best
+
+# 2026-03-30 17:05:22.418253
++/exit

@@ -1,36 +1,40 @@
-import fs from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
-const CONTACT_FILE = path.join(process.cwd(), 'contact.json');
+export type ContactEntry = {
+  name: string;
+  email: string;
+  message: string;
+  createdAt: string;
+};
 
-export function saveContactEntry(entry: { name: string; email: string; message: string }) {
+const DATA_DIR = path.join(process.cwd(), ".data");
+const DATA_FILE = path.join(DATA_DIR, "contact-submissions.json");
+
+async function readEntries(): Promise<ContactEntry[]> {
   try {
-    // Read existing data
-    const data = fs.existsSync(CONTACT_FILE) 
-      ? JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8')) 
-      : [];
-
-    // Add new entry
-    const newEntry = {
-      ...entry,
-      timestamp: new Date().toISOString(),
-    };
-
-    const updatedData = [...data, newEntry];
-    fs.writeFileSync(CONTACT_FILE, JSON.stringify(updatedData, null, 2));
-    return { success: true, message: 'Submission saved successfully' };
-  } catch (error) {
-    return { success: false, message: 'Failed to save submission' };
+    const raw = await fs.readFile(DATA_FILE, "utf8");
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
   }
 }
 
-export function getContactCount() {
+export async function saveContactEntry(entry: ContactEntry) {
   try {
-    const data = fs.existsSync(CONTACT_FILE) 
-      ? JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8')) 
-      : [];
-    return data.length;
+    await fs.mkdir(DATA_DIR, { recursive: true });
+    const entries = await readEntries();
+    entries.push(entry);
+    await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2), "utf8");
+    return {
+      ok: true as const,
+      count: entries.length,
+    };
   } catch {
-    return 0;
+    return {
+      ok: false as const,
+      count: 0,
+    };
   }
 }
