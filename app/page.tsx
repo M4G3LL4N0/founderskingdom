@@ -1,6 +1,7 @@
 import SiteHeader from '@/components/site-header';
 import SiteFooter from '@/components/site-footer';
 import { mockStartups, type Startup } from '@/lib/startups';
+import { mockStartups, type Startup } from '@/lib/startups';
 
 const heroSignals = [
   "Multi-venture ready",
@@ -122,7 +123,7 @@ const signalCards = [
   },
 ];
 
-const featuredVentures: Startup[] = mockStartups;
+const featuredVentures = mockStartups;
 
 const useCases = [
   {
