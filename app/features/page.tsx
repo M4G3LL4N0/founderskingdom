@@ -87,7 +87,7 @@ export default function FeaturesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24 md:px-8">
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featureSections.map((feature) => (
             <div
               key={feature.title}
