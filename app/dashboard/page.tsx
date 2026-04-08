@@ -25,7 +25,7 @@ type Filter = "all" | "idea" | "building" | "live" | "scaling";
 export default function DashboardPage() {
   const router = useRouter();
   const [filter, setFilter] = useState<Filter>("all");
-  const [startups, setStartups] = useState<Startup[]>(mockStartups);
+  const [startups, setStartups] = useState<Startup[]>([...mockStartups]);
 
   useEffect(() => {
     try {

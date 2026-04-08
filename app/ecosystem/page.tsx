@@ -1,3 +1,7 @@
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
+import PageHero from "@/components/page-hero";
+
 const ecosystemLayers = [
   {
     title: "Ideas",
@@ -39,21 +43,16 @@ const examples = [
 export default function EcosystemPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(91,132,255,0.12),transparent_24%),linear-gradient(180deg,#04060b_0%,#060913_42%,#04060b_100%)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
-        <BackLink />
-      </div>
+      <SiteHeader />
 
-      <PageHeader
-        eyebrow="Ecosystem"
-        title="The portfolio becomes more valuable when the ventures connect."
-        description={
-          <>
-            FoundersKingdom is built around a simple idea: the strongest founders are not<br />
-            just building companies. They are building systems of companies. The ecosystem<br />
-            layer is where startup leverage compounds.
-          </>
-        }
-      />
+      <section className="mx-auto max-w-5xl px-6 pb-20 pt-12 text-center md:px-8 md:pb-28">
+        <PageHero
+          eyebrow="Ecosystem"
+          title="The portfolio becomes more valuable when the ventures connect."
+          description="FoundersKingdom is built around a simple idea: the strongest founders are not just building companies. They are building systems of companies. The ecosystem layer is where startup leverage compounds."
+          centered
+        />
+      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-10 md:px-8">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -95,6 +94,8 @@ export default function EcosystemPage() {
           </div>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

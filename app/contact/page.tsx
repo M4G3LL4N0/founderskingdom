@@ -1,7 +1,4 @@
 "use client";
-
-"use client";
-"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -144,7 +141,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={loading}
-              className="fk-button fk-button-white fk-button-lg w-full"
+              className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>

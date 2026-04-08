@@ -21,6 +21,7 @@ export const mockStartups: readonly Startup[] = [
     category: "Founder Software",
     description:
       "The startup operating system for founders building multiple ventures.",
+    createdAt: "2026-03-01T00:00:00.000Z",
   },
   {
     id: "redwoud",
@@ -31,6 +32,7 @@ export const mockStartups: readonly Startup[] = [
     category: "Intelligence Platform",
     description:
       "A strategic intelligence layer that strengthens founder narrative and ecosystem visibility.",
+    createdAt: "2026-03-02T00:00:00.000Z",
   },
   {
     id: "noaerth",
@@ -41,6 +43,7 @@ export const mockStartups: readonly Startup[] = [
     category: "Holding Company",
     description:
       "The parent layer that organizes ventures, proof, and portfolio direction.",
+    createdAt: "2026-03-03T00:00:00.000Z",
   },
   {
     id: "studio",
@@ -51,6 +54,7 @@ export const mockStartups: readonly Startup[] = [
     category: "Venture Studio Tools",
     description:
       "A future expansion path for multi-company teams and internal startup systems.",
+    createdAt: "2026-03-04T00:00:00.000Z",
   },
   {
     id: "signal",
@@ -61,6 +65,7 @@ export const mockStartups: readonly Startup[] = [
     category: "Data Layer",
     description:
       "A future product direction for startup signals, scoring inputs, and venture intelligence.",
+    createdAt: "2026-03-05T00:00:00.000Z",
   },
   {
     id: "launch",
@@ -71,5 +76,6 @@ export const mockStartups: readonly Startup[] = [
     category: "Automation Layer",
     description:
       "A future system for startup generation, workflows, and execution support.",
+    createdAt: "2026-03-06T00:00:00.000Z",
   },
 ];

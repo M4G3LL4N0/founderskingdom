@@ -9,8 +9,7 @@ export default function LeadsPage() {
           Leads
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
-          This route is now a valid Next.js page module. Replace this placeholder
-          with the real leads experience after the build is clean again.
+          Manage and track your venture leads in one organized view.
         </p>
       </section>
     </main>

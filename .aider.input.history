@@ -2920,3 +2920,346 @@
 
 # 2026-03-30 17:05:22.418253
 +/exit
+
+# 2026-03-30 17:11:00.121532
++You are fixing a critical JSX parsing error in a Next.js App Router page.
++
++Build error:
++./app/page.tsx:578:15
++Expected '</', got 'jsx text'
++
++Context:
++Lines around error:
++
++576 |             </div>
++577 |           </div>
++578 |         </div>
++579 |       </section>
++
++Then next section begins:
++<section id="roadmap" ...>
++
++This indicates:
++- There is a mismatched or extra closing </div>
++- OR a missing opening <div> earlier
++- OR broken JSX nesting above this point
++
++Tasks:
++
++1. Open app/page.tsx
++2. Go to the section ABOVE the roadmap section (just before <section id="roadmap">)
++3. Carefully reconstruct the JSX tree for that entire section
++
++4. Identify:
++- extra closing </div>
++- missing opening <div>
++- incorrect nesting depth
++
++5. Fix using MINIMAL CHANGE strategy:
++- DO NOT rewrite the page
++- DO NOT remove sections
++- DO NOT change styling or layout
++- ONLY fix structural JSX
++
++6. Strongly validate:
++- every <div> has a matching </div>
++- sections are properly wrapped
++- no orphan closing tags exist
++- indentation reflects correct nesting
++
++7. After fixing that block:
++- scan ENTIRE file for similar structural issues
++- especially large sections:
++  - hero
++  - product bands
++  - capability sections
++  - roadmap
++  - CTA
++
++8. Ensure:
++- valid JSX
++- Next.js App Router safe
++- Turbopack parser safe
++
++Goal:
++- eliminate this parsing error
++- prevent cascading future JSX errors
++- preserve full premium design
++
++Return FULL FILE ONLY.
+
+# 2026-03-30 17:12:45.836191
++y
+
+# 2026-03-30 17:13:00.363771
++/exit
+
+# 2026-03-30 17:15:36.267084
++Fix the JSX parsing error in founderskingdom/app/page.tsx.
+
+# 2026-03-30 17:15:45.836676
++Build error:
+
+# 2026-03-30 17:15:48.247610
++./founderskingdom/app/page.tsx:578:15
+
+# 2026-03-30 17:15:50.340510
++Expected '</', got 'jsx text'
+
+# 2026-03-30 17:15:57.884005
++Fix the JSX parsing error in founderskingdom/app/page.tsx.
+
+# 2026-03-30 17:16:14.693470
++Build error:
+
+# 2026-03-30 17:16:22.175491
++./founderskingdom/app/page.tsx:578:15
+
+# 2026-03-30 17:16:27.789124
++Expected '</', got 'jsx text'
+
+# 2026-03-30 17:16:54.946902
++Context:
+
+# 2026-03-30 17:17:22.954132
++576 |             </div>
+
+# 2026-03-30 17:17:46.146463
++577 |           </div>
+
+# 2026-03-30 17:18:37.213103
++578 |         </div>
+
+# 2026-03-30 17:19:44.563139
++579 |       </section>
+
+# 2026-03-30 17:21:21.601794
++580 |
+
+# 2026-03-30 17:32:51.483499
++581 |       <section id="roadmap" ...
+
+# 2026-03-30 17:32:58.069659
++Tasks:
+
+# 2026-03-30 17:33:00.777390
++1. Open founderskingdom/app/page.tsx
+
+# 2026-03-30 17:38:59.847998
++Fix the build error in app/page.tsx.
+
+# 2026-03-30 17:39:17.071385
++Build error:
+
+# 2026-03-30 17:39:25.663245
++./app/page.tsx:124:26
+
+# 2026-03-30 17:39:32.553282
++Type error: Cannot find name 'mockStartups'.
+
+# 2026-03-30 17:39:38.943192
++Tasks:
+
+# 2026-03-30 17:39:52.061800
++1. Open app/page.tsx
+
+# 2026-03-30 17:40:00.184518
++2. Resolve the missing mockStartups reference correctly
+
+# 2026-03-30 17:40:13.676897
++3. Prefer importing mockStartups from the existing shared data file:
+
+# 2026-03-30 17:40:24.274857
++   @/lib/startups
+
+# 2026-03-30 17:40:57.923885
++4. Do not duplicate the data locally unless absolutely necessary
+
+# 2026-03-30 17:40:57.933650
++5. Preserve all current page content, layout, styling, and logic
+
+# 2026-03-30 17:40:57.940253
++6. Ensure the import path is correct for this repo
+
+# 2026-03-30 17:40:57.945294
++7. Return FULL FILE ONLY
+
+# 2026-04-07 20:07:31.063655
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:07:31.064042
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:09:12.552409
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:09:12.552758
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:10:57.683422
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:10:57.685616
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:12:59.751644
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:12:59.752292
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:41:15.758519
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
+
+# 2026-04-07 20:41:15.758718
++SYSTEM MODE: FAST MICRO TASK
++
++Venture: founderskingdom
++Phase: fix_build
++
++Rules:
++- do ONLY one small improvement
++- do NOT refactor entire files
++- do NOT change many files
++- keep changes minimal
++- keep build working
++- no explanations
++- no questions
++
++Goal:
++- make one visible improvement quickly
