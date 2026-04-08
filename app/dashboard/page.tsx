@@ -272,6 +272,49 @@ export default function DashboardPage() {
           </div>
         </section>
 
+        <section className="mt-12 grid gap-6 lg:grid-cols-[1fr]">
+          <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
+            <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
+              Strategic Focus
+            </div>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
+              Key leverage points across your portfolio
+            </h2>
+            
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+                <div className="text-sm text-white/48">Highest Momentum</div>
+                <div className="mt-2 text-3xl font-semibold tracking-tight">
+                  {startups.sort((a,b) => b.momentum - a.momentum)[0]?.name || "None"}
+                </div>
+                <div className="mt-3 text-sm text-white/48">
+                  Current momentum: {startups.sort((a,b) => b.momentum - a.momentum)[0]?.momentum || 0}%
+                </div>
+              </div>
+
+              <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+                <div className="text-sm text-white/48">Best Ecosystem Fit</div>
+                <div className="mt-2 text-3xl font-semibold tracking-tight">
+                  {startups.sort((a,b) => b.score - a.score)[0]?.name || "None"}
+                </div>
+                <div className="mt-3 text-sm text-white/48">
+                  Strategic score: {startups.sort((a,b) => b.score - a.score)[0]?.score || 0}%
+                </div>
+              </div>
+
+              <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+                <div className="text-sm text-white/48">Most Compounding</div>
+                <div className="mt-2 text-3xl font-semibold tracking-tight">
+                  {startups.filter(s => s.stage === 'scaling').sort((a,b) => b.score - a.score)[0]?.name || "None"}
+                </div>
+                <div className="mt-3 text-sm text-white/48">
+                  Scaling potential: {startups.filter(s => s.stage === 'scaling').sort((a,b) => b.score - a.score)[0]?.score || 0}%
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
             <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
