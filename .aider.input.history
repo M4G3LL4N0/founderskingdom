@@ -3299,3 +3299,211 @@
 +
 +Goal:
 +- make one visible improvement quickly
+
+# 2026-04-07 21:01:28.258997
++Fix or improve this project.
++
++Focus ONLY on:
++- fixing errors
++- improving UI slightly
++- small high-impact changes
++
++DO NOT:
++- rewrite large files
++- add new systems
++- over-engineer
++
++Make minimal edits only.
+
+# 2026-04-07 21:01:28.259322
++Fix or improve this project.
++
++Focus ONLY on:
++- fixing errors
++- improving UI slightly
++- small high-impact changes
++
++DO NOT:
++- rewrite large files
++- add new systems
++- over-engineer
++
++Make minimal edits only.
+
+# 2026-04-07 21:03:31.150388
++Fix or improve this project.
++
++Focus ONLY on:
++- fixing errors
++- improving UI slightly
++- small high-impact changes
++
++DO NOT:
++- rewrite large files
++- add new systems
++- over-engineer
++
++Make minimal edits only.
+
+# 2026-04-07 21:03:31.150635
++Fix or improve this project.
++
++Focus ONLY on:
++- fixing errors
++- improving UI slightly
++- small high-impact changes
++
++DO NOT:
++- rewrite large files
++- add new systems
++- over-engineer
++
++Make minimal edits only.
+
+# 2026-04-07 21:24:28.243705
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:24:28.243917
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:25:45.297432
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:25:45.297526
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:30:41.226482
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:30:41.226705
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:32:35.933757
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:32:35.934019
++Add one small high-impact product improvement only.
++
++Rules:
++- minimal edits only
++- one focused improvement
++- no broad rewrites
++- keep build stability
++- preserve current structure
+
+# 2026-04-07 21:38:40.037710
++Fix the current build issue only.
++
++Rules:
++- minimal edits only
++- touch as few files as possible
++- do not rewrite unrelated code
++- do not add features
++- preserve existing design
++- return exact code edits only
+
+# 2026-04-07 21:38:40.039371
++Fix the current build issue only.
++
++Rules:
++- minimal edits only
++- touch as few files as possible
++- do not rewrite unrelated code
++- do not add features
++- preserve existing design
++- return exact code edits only
+
+# 2026-04-07 21:38:56.004032
++Fix the current build failure only.
++
++Failure type: env_missing
++
++Rules:
++- minimal edits only
++- target only files related to the build failure
++- do not redesign the UI
++- do not add features
++- return exact code edits only
+
+# 2026-04-07 21:38:56.004236
++Fix the current build failure only.
++
++Failure type: env_missing
++
++Rules:
++- minimal edits only
++- target only files related to the build failure
++- do not redesign the UI
++- do not add features
++- return exact code edits only
+
+# 2026-04-07 21:42:19.500632
++Fix the current build issue only.
++
++Rules:
++- minimal edits only
++- touch as few files as possible
++- do not rewrite unrelated code
++- do not add features
++- preserve existing design
++- return exact code edits only
+
+# 2026-04-07 21:42:19.502280
++Fix the current build issue only.
++
++Rules:
++- minimal edits only
++- touch as few files as possible
++- do not rewrite unrelated code
++- do not add features
++- preserve existing design
++- return exact code edits only

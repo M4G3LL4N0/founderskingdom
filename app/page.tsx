@@ -583,7 +583,7 @@ export default function Home() {
           {featuredVentures.map((venture) => (
             <div
               key={venture.id}
-              className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28)]"
+              className="rounded-[30px] border border-white/10 bg-white/[0.03] p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28)] transition-all hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.06]"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
