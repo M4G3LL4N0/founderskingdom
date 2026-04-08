@@ -127,6 +127,60 @@ export default function DashboardPage() {
         </section>
 
         <section className="mt-12 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
+          <div className="text-[11px] uppercase tracking-[0.28em] text-emerald-100/72">
+            Founder Pulse
+          </div>
+          <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
+            Portfolio health at a glance
+          </h2>
+          
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+              <div className="text-sm text-white/48">Execution Pressure</div>
+              <div className="mt-2 text-3xl font-semibold tracking-tight">
+                {Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%
+              </div>
+              <div className="mt-3 h-2 w-full rounded-full bg-white/10">
+                <div 
+                  className="h-full rounded-full bg-emerald-300"
+                  style={{ width: `${Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+              <div className="text-sm text-white/48">Portfolio Balance</div>
+              <div className="mt-2 text-3xl font-semibold tracking-tight">
+                {Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%
+              </div>
+              <div className="mt-3 h-2 w-full rounded-full bg-white/10">
+                <div 
+                  className="h-full rounded-full bg-blue-400"
+                  style={{ width: `${Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+              <div className="text-sm text-white/48">Strategic Alignment</div>
+              <div className="mt-2 text-3xl font-semibold tracking-tight">
+                {Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%
+              </div>
+              <div className="mt-3 h-2 w-full rounded-full bg-white/10">
+                <div 
+                  className="h-full rounded-full bg-purple-400"
+                  style={{ width: `${Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%` }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 text-sm text-white/48">
+            Founder Pulse tracks portfolio health across three key dimensions to help you maintain strategic focus and execution momentum.
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
