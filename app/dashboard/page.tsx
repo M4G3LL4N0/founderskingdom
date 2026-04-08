@@ -136,7 +136,12 @@ export default function DashboardPage() {
           
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
-              <div className="text-sm text-white/48">Execution Pressure</div>
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-white/48">Execution Pressure</div>
+                <div className="text-xs rounded-full px-2 py-1 bg-emerald-300/10 text-emerald-100">
+                  {startups.filter(s => s.momentum > 70).length}/{startups.length}
+                </div>
+              </div>
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%
               </div>
@@ -146,10 +151,20 @@ export default function DashboardPage() {
                   style={{ width: `${Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%` }}
                 />
               </div>
+              <div className="mt-3 text-xs text-white/48">
+                {startups.filter(s => s.momentum > 70).length >= startups.length * 0.7 
+                  ? "Strong execution focus" 
+                  : "Needs more momentum"}
+              </div>
             </div>
 
             <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
-              <div className="text-sm text-white/48">Portfolio Balance</div>
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-white/48">Portfolio Balance</div>
+                <div className="text-xs rounded-full px-2 py-1 bg-blue-400/10 text-blue-100">
+                  {startups.filter(s => s.score >= 70).length}/{startups.length}
+                </div>
+              </div>
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%
               </div>
@@ -159,10 +174,20 @@ export default function DashboardPage() {
                   style={{ width: `${Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%` }}
                 />
               </div>
+              <div className="mt-3 text-xs text-white/48">
+                {startups.filter(s => s.score >= 70).length >= startups.length * 0.6
+                  ? "Healthy balance"
+                  : "Needs stronger ventures"}
+              </div>
             </div>
 
             <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
-              <div className="text-sm text-white/48">Strategic Alignment</div>
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-white/48">Strategic Alignment</div>
+                <div className="text-xs rounded-full px-2 py-1 bg-purple-400/10 text-purple-100">
+                  {startups.filter(s => s.stage !== 'idea').length}/{startups.length}
+                </div>
+              </div>
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%
               </div>
@@ -171,6 +196,11 @@ export default function DashboardPage() {
                   className="h-full rounded-full bg-purple-400"
                   style={{ width: `${Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%` }}
                 />
+              </div>
+              <div className="mt-3 text-xs text-white/48">
+                {startups.filter(s => s.stage !== 'idea').length >= startups.length * 0.5
+                  ? "Good active pipeline"
+                  : "Needs more active ventures"}
               </div>
             </div>
           </div>
@@ -413,12 +443,20 @@ export default function DashboardPage() {
 
           <div className="space-y-6">
             <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
-              <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
-                AI assistant preview
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
+                    AI assistant preview
+                  </div>
+                  <h2 className="mt-2 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
+                    Strategic insight, not just startup storage.
+                  </h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <div className="text-xs text-emerald-100">Active</div>
+                </div>
               </div>
-              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
-                Strategic insight, not just startup storage.
-              </h2>
               <div className="mt-6 space-y-4">
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
                   <div className="flex items-center gap-2">
