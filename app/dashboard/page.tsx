@@ -309,40 +309,76 @@ export default function DashboardPage() {
         <section className="mt-12 grid gap-6 lg:grid-cols-[1fr]">
           <div className="rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.025))] p-7 md:p-9">
             <div className="text-[11px] uppercase tracking-[0.28em] text-white/34">
-              Strategic Focus
+              Portfolio Health
             </div>
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
-              Key leverage points across your portfolio
+              Strategic insights across your ecosystem
             </h2>
             
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
-                <div className="text-sm text-white/48">Highest Momentum</div>
-                <div className="mt-2 text-3xl font-semibold tracking-tight">
-                  {startups.sort((a,b) => b.momentum - a.momentum)[0]?.name || "None"}
+                <div className="text-sm text-white/48">Momentum Trend</div>
+                <div className="mt-4 h-24">
+                  <div className="relative h-full w-full">
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10" />
+                    {[0, 25, 50, 75, 100].map((y) => (
+                      <div 
+                        key={y}
+                        className="absolute left-0 right-0 h-[1px] bg-white/5"
+                        style={{ bottom: `${y}%` }}
+                      />
+                    ))}
+                    <div 
+                      className="absolute bottom-0 h-full w-full bg-gradient-to-t from-emerald-300/20 to-transparent"
+                      style={{ height: `${Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="mt-3 text-sm text-white/48">
-                  Current momentum: {startups.sort((a,b) => b.momentum - a.momentum)[0]?.momentum || 0}%
+                <div className="mt-4 text-sm text-white/48">
+                  {Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}% avg momentum
                 </div>
               </div>
 
               <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
-                <div className="text-sm text-white/48">Best Ecosystem Fit</div>
-                <div className="mt-2 text-3xl font-semibold tracking-tight">
-                  {startups.sort((a,b) => b.score - a.score)[0]?.name || "None"}
+                <div className="text-sm text-white/48">Stage Distribution</div>
+                <div className="mt-4 flex h-24 items-end gap-1">
+                  {['idea', 'building', 'live', 'scaling'].map((stage) => (
+                    <div
+                      key={stage}
+                      className="h-full w-1/4 bg-gradient-to-t from-white/10 to-transparent"
+                      style={{ height: `${(startups.filter(s => s.stage === stage).length / startups.length) * 100}%` }}
+                    >
+                      <div className="h-full bg-white/10" />
+                    </div>
+                  ))}
                 </div>
-                <div className="mt-3 text-sm text-white/48">
-                  Strategic score: {startups.sort((a,b) => b.score - a.score)[0]?.score || 0}%
+                <div className="mt-4 text-sm text-white/48">
+                  {startups.filter(s => s.stage !== 'idea').length} active ventures
                 </div>
               </div>
 
               <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
-                <div className="text-sm text-white/48">Most Compounding</div>
-                <div className="mt-2 text-3xl font-semibold tracking-tight">
-                  {startups.filter(s => s.stage === 'scaling').sort((a,b) => b.score - a.score)[0]?.name || "None"}
+                <div className="text-sm text-white/48">Relationship Density</div>
+                <div className="mt-4 h-24">
+                  <div className="relative h-full w-full">
+                    <div className="absolute inset-0 rounded-full border border-white/10" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="h-16 w-16 rounded-full border border-white/10" />
+                    </div>
+                    {startups.slice(0, 4).map((startup, i) => (
+                      <div
+                        key={startup.id}
+                        className="absolute h-3 w-3 rounded-full bg-white/10"
+                        style={{
+                          top: `${Math.sin((i / startups.length) * Math.PI * 2) * 40 + 50}%`,
+                          left: `${Math.cos((i / startups.length) * Math.PI * 2) * 40 + 50}%`
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-3 text-sm text-white/48">
-                  Scaling potential: {startups.filter(s => s.stage === 'scaling').sort((a,b) => b.score - a.score)[0]?.score || 0}%
+                <div className="mt-4 text-sm text-white/48">
+                  {startups.length} connected ventures
                 </div>
               </div>
             </div>
@@ -385,24 +421,46 @@ export default function DashboardPage() {
               </h2>
               <div className="mt-6 space-y-4">
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
-                  Focus FoundersKingdom first. It has the strongest leverage profile,
-                  highest score, and best ecosystem fit across the current portfolio.
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-emerald-300" />
+                    <div>Focus FoundersKingdom first - strongest leverage profile</div>
+                  </div>
+                  <div className="mt-2 pl-4 text-white/48">
+                    Highest score (92) and best ecosystem fit across portfolio
+                  </div>
                 </div>
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
-                  Redwoud and FoundersKingdom show the strongest compounding relationship
-                  through positioning, intelligence, and founder narrative.
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-blue-400" />
+                    <div>Redwoud and FoundersKingdom show strong compounding</div>
+                  </div>
+                  <div className="mt-2 pl-4 text-white/48">
+                    Shared positioning, intelligence, and founder narrative
+                  </div>
                 </div>
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
-                  Your momentum score is trending upward - maintain focus on core ventures
-                  to maximize execution leverage.
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-purple-400" />
+                    <div>Momentum trending upward (+8% last 30 days)</div>
+                  </div>
+                  <div className="mt-2 pl-4 text-white/48">
+                    Maintain focus on core ventures to maximize execution leverage
+                  </div>
                 </div>
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
-                  Ecosystem leverage is below target - consider how ventures can reinforce
-                  each other through shared infrastructure or audience.
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-yellow-400" />
+                    <div>Ecosystem leverage below target (42%)</div>
+                  </div>
+                  <div className="mt-2 pl-4 text-white/48">
+                    Consider shared infrastructure and audience reinforcement
+                  </div>
                 </div>
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
-                  Example prompt: Show me startups with scoring greater than 90 and recent
-                  user growth.
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-white/60" />
+                    <div>Example prompt: Show startups scoring &gt;90 with growth</div>
+                  </div>
                 </div>
               </div>
             </div>
