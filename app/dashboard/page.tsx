@@ -183,7 +183,7 @@ export default function DashboardPage() {
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%
                 <span className="ml-2 text-sm">
-                  {startups.filter(s => s.score >= 70).length > (localStorage.getItem('high-score-count') || startups.filter(s => s.score >= 70).length) ? '↑' : '→'}
+                  {startups.filter(s => s.score >= 70).length > (parseInt(localStorage.getItem('high-score-count') || '0') || startups.filter(s => s.score >= 70).length) ? '↑' : '→'}
                 </span>
               </div>
               <div className="mt-3 h-2 w-full rounded-full bg-white/10">
