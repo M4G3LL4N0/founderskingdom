@@ -138,69 +138,103 @@ export default function DashboardPage() {
             <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
               <div className="flex items-center justify-between">
                 <div className="text-sm text-white/48">Execution Pressure</div>
-                <div className="text-xs rounded-full px-2 py-1 bg-emerald-300/10 text-emerald-100">
-                  {startups.filter(s => s.momentum > 70).length}/{startups.length}
+                <div className="flex items-center gap-1">
+                  <span className="text-xs rounded-full px-2 py-1 bg-emerald-300/10 text-emerald-100">
+                    {startups.filter(s => s.momentum > 70).length}/{startups.length}
+                  </span>
+                  <div className={`h-1.5 w-1.5 rounded-full ${startups.filter(s => s.momentum > 70).length >= startups.length * 0.7 ? 'bg-emerald-400' : 'bg-yellow-400'}`} />
                 </div>
               </div>
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%
+                <span className="ml-2 text-sm">
+                  {startups.some(s => s.momentum - (localStorage.getItem(`momentum-${s.id}`) || s.momentum) > 5) ? '↑' : 
+                   startups.some(s => s.momentum - (localStorage.getItem(`momentum-${s.id}`) || s.momentum) < -5) ? '↓' : '→'}
+                </span>
               </div>
               <div className="mt-3 h-2 w-full rounded-full bg-white/10">
                 <div 
-                  className="h-full rounded-full bg-emerald-300"
+                  className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-emerald-500"
                   style={{ width: `${Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%` }}
                 />
               </div>
-              <div className="mt-3 text-xs text-white/48">
-                {startups.filter(s => s.momentum > 70).length >= startups.length * 0.7 
-                  ? "Strong execution focus" 
-                  : "Needs more momentum"}
+              <div className="mt-3 flex items-center justify-between text-xs text-white/48">
+                <span>
+                  {startups.filter(s => s.momentum > 70).length >= startups.length * 0.7 
+                    ? "Strong execution focus" 
+                    : "Needs more momentum"}
+                </span>
+                <span>
+                  {Math.max(...startups.map(s => s.momentum))} peak
+                </span>
               </div>
             </div>
 
             <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
               <div className="flex items-center justify-between">
                 <div className="text-sm text-white/48">Portfolio Balance</div>
-                <div className="text-xs rounded-full px-2 py-1 bg-blue-400/10 text-blue-100">
-                  {startups.filter(s => s.score >= 70).length}/{startups.length}
+                <div className="flex items-center gap-1">
+                  <span className="text-xs rounded-full px-2 py-1 bg-blue-400/10 text-blue-100">
+                    {startups.filter(s => s.score >= 70).length}/{startups.length}
+                  </span>
+                  <div className={`h-1.5 w-1.5 rounded-full ${startups.filter(s => s.score >= 70).length >= startups.length * 0.6 ? 'bg-blue-400' : 'bg-yellow-400'}`} />
                 </div>
               </div>
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%
+                <span className="ml-2 text-sm">
+                  {startups.filter(s => s.score >= 70).length > (localStorage.getItem('high-score-count') || startups.filter(s => s.score >= 70).length) ? '↑' : '→'}
+                </span>
               </div>
               <div className="mt-3 h-2 w-full rounded-full bg-white/10">
                 <div 
-                  className="h-full rounded-full bg-blue-400"
+                  className="h-full rounded-full bg-gradient-to-r from-blue-400 to-blue-600"
                   style={{ width: `${Math.round((startups.filter(s => s.score >= 70).length / startups.length) * 100) || 0}%` }}
                 />
               </div>
-              <div className="mt-3 text-xs text-white/48">
-                {startups.filter(s => s.score >= 70).length >= startups.length * 0.6
-                  ? "Healthy balance"
-                  : "Needs stronger ventures"}
+              <div className="mt-3 flex items-center justify-between text-xs text-white/48">
+                <span>
+                  {startups.filter(s => s.score >= 70).length >= startups.length * 0.6
+                    ? "Healthy balance"
+                    : "Needs stronger ventures"}
+                </span>
+                <span>
+                  {Math.max(...startups.map(s => s.score))} top score
+                </span>
               </div>
             </div>
 
             <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-white/48">Strategic Alignment</div>
-                <div className="text-xs rounded-full px-2 py-1 bg-purple-400/10 text-purple-100">
-                  {startups.filter(s => s.stage !== 'idea').length}/{startups.length}
+                <div className="text-sm text-white/48">Ecosystem Strength</div>
+                <div className="flex items-center gap-1">
+                  <span className="text-xs rounded-full px-2 py-1 bg-purple-400/10 text-purple-100">
+                    {startups.filter(s => s.stage !== 'idea').length}/{startups.length}
+                  </span>
+                  <div className={`h-1.5 w-1.5 rounded-full ${startups.filter(s => s.stage !== 'idea').length >= startups.length * 0.5 ? 'bg-purple-400' : 'bg-yellow-400'}`} />
                 </div>
               </div>
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%
+                <span className="ml-2 text-sm">
+                  {startups.filter(s => s.stage !== 'idea').length > (localStorage.getItem('active-count') || startups.filter(s => s.stage !== 'idea').length) ? '↑' : '→'}
+                </span>
               </div>
               <div className="mt-3 h-2 w-full rounded-full bg-white/10">
                 <div 
-                  className="h-full rounded-full bg-purple-400"
+                  className="h-full rounded-full bg-gradient-to-r from-purple-400 to-purple-600"
                   style={{ width: `${Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%` }}
                 />
               </div>
-              <div className="mt-3 text-xs text-white/48">
-                {startups.filter(s => s.stage !== 'idea').length >= startups.length * 0.5
-                  ? "Good active pipeline"
-                  : "Needs more active ventures"}
+              <div className="mt-3 flex items-center justify-between text-xs text-white/48">
+                <span>
+                  {startups.filter(s => s.stage !== 'idea').length >= startups.length * 0.5
+                    ? "Good active pipeline"
+                    : "Needs more active ventures"}
+                </span>
+                <span>
+                  {startups.filter(s => s.stage === 'scaling').length} scaling
+                </span>
               </div>
             </div>
           </div>
