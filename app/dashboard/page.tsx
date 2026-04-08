@@ -148,8 +148,8 @@ export default function DashboardPage() {
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%
                 <span className="ml-2 text-sm">
-                  {startups.some(s => s.momentum - (localStorage.getItem(`momentum-${s.id}`) || s.momentum) > 5) ? '↑' : 
-                   startups.some(s => s.momentum - (localStorage.getItem(`momentum-${s.id}`) || s.momentum) < -5) ? '↓' : '→'}
+                  {startups.some(s => s.momentum - (parseInt(localStorage.getItem(`momentum-${s.id}`) || s.momentum.toString())) > 5) ? '↑' : 
+                   startups.some(s => s.momentum - (parseInt(localStorage.getItem(`momentum-${s.id}`) || s.momentum.toString())) < -5) ? '↓' : '→'}
                 </span>
               </div>
               <div className="mt-3 h-2 w-full rounded-full bg-white/10">
