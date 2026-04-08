@@ -175,8 +175,42 @@ export default function DashboardPage() {
             </div>
           </div>
 
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+              <div className="text-sm text-white/48">Founder Momentum</div>
+              <div className="mt-2 text-3xl font-semibold tracking-tight">
+                {Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%
+              </div>
+              <div className="mt-3 h-2 w-full rounded-full bg-white/10">
+                <div 
+                  className="h-full rounded-full bg-emerald-300"
+                  style={{ width: `${Math.round(startups.reduce((sum, s) => sum + s.momentum, 0) / startups.length) || 0}%` }}
+                />
+              </div>
+              <div className="mt-4 text-sm text-white/48">
+                Your momentum score reflects execution pressure and portfolio movement. Keep it above 70% for optimal founder leverage.
+              </div>
+            </div>
+
+            <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+              <div className="text-sm text-white/48">Ecosystem Leverage</div>
+              <div className="mt-2 text-3xl font-semibold tracking-tight">
+                {Math.round((startups.filter(s => s.stage === 'scaling').length / startups.length) * 100) || 0}%
+              </div>
+              <div className="mt-3 h-2 w-full rounded-full bg-white/10">
+                <div 
+                  className="h-full rounded-full bg-purple-400"
+                  style={{ width: `${Math.round((startups.filter(s => s.stage === 'scaling').length / startups.length) * 100) || 0}%` }}
+                />
+              </div>
+              <div className="mt-4 text-sm text-white/48">
+                Measures how much of your portfolio is positioned for compounding growth through ecosystem relationships.
+              </div>
+            </div>
+          </div>
+
           <div className="mt-8 text-sm text-white/48">
-            Founder Pulse tracks portfolio health across three key dimensions to help you maintain strategic focus and execution momentum.
+            Founder Pulse tracks portfolio health across key dimensions to help you maintain strategic focus and execution momentum.
           </div>
         </section>
 
@@ -323,8 +357,21 @@ export default function DashboardPage() {
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-4xl md:leading-[1.06]">
               Connected ventures create stronger founder leverage.
             </h2>
-            <div className="mt-8">
-              <RelationshipMapPreview />
+            <div className="mt-8 space-y-6">
+              <div className="rounded-[28px] border border-white/8 bg-black/20 p-6">
+                <div className="text-sm text-white/48">Ecosystem Insights</div>
+                <div className="mt-4">
+                  <RelationshipMapPreview />
+                </div>
+                <div className="mt-6 space-y-3">
+                  <div className="rounded-[20px] border border-white/8 bg-black/20 px-4 py-3 text-sm text-white/60">
+                    FoundersKingdom and Redwoud show strong compounding through shared intelligence infrastructure
+                  </div>
+                  <div className="rounded-[20px] border border-white/8 bg-black/20 px-4 py-3 text-sm text-white/60">
+                    Next Venture could leverage Noaerth's audience for faster distribution
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -344,6 +391,14 @@ export default function DashboardPage() {
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
                   Redwoud and FoundersKingdom show the strongest compounding relationship
                   through positioning, intelligence, and founder narrative.
+                </div>
+                <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
+                  Your momentum score is trending upward - maintain focus on core ventures
+                  to maximize execution leverage.
+                </div>
+                <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
+                  Ecosystem leverage is below target - consider how ventures can reinforce
+                  each other through shared infrastructure or audience.
                 </div>
                 <div className="rounded-[24px] border border-white/8 bg-black/20 p-5 text-sm leading-6 text-white/60">
                   Example prompt: Show me startups with scoring greater than 90 and recent
