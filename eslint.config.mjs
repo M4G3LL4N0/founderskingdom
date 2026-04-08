@@ -1,18 +1,22 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { defineConfig } from "eslint/config";
+import next from "@next/eslint-plugin-next";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
+export default defineConfig({
+  plugins: {
+    "@next/next": next
+  },
+  rules: {
+    "@next/next/no-html-link-for-pages": "error",
+    "@next/next/no-sync-scripts": "error",
+    "@next/next/no-before-interactive-script-outside-document": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  ignorePatterns: [
     ".next/**",
     "out/**",
     "build/**",
-    "next-env.d.ts",
-  ]),
-]);
-
-export default eslintConfig;
+    "node_modules/**",
+    "next-env.d.ts"
+  ]
+});
