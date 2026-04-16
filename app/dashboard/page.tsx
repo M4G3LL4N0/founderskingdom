@@ -217,7 +217,7 @@ export default function DashboardPage() {
               <div className="mt-2 text-3xl font-semibold tracking-tight">
                 {Math.round((startups.filter(s => s.stage !== 'idea').length / startups.length) * 100) || 0}%
                 <span className="ml-2 text-sm">
-                  {startups.filter(s => s.stage !== 'idea').length > (localStorage.getItem('active-count') || startups.filter(s => s.stage !== 'idea').length) ? '↑' : '→'}
+                  {startups.filter(s => s.stage !== 'idea').length > (parseInt(localStorage.getItem('active-count') || '0') || startups.filter(s => s.stage !== 'idea').length) ? '↑' : '→'}
                 </span>
               </div>
               <div className="mt-3 h-2 w-full rounded-full bg-white/10">
