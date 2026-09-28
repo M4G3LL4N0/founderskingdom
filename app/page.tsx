@@ -99,24 +99,24 @@ const comparisonRows = [
 
 const signalCards = [
   {
-    label: "Ventures tracked",
+    label: "Ventures in this sample",
     value: "12",
-    note: "A unified founder portfolio instead of fragmented tools and notes.",
+    note: "Local demo rows — not a live customer or portfolio count.",
   },
   {
     label: "Priority tracks",
     value: "03",
-    note: "A cleaner operating picture of what deserves focus right now.",
+    note: "A sample operating picture of what the map can highlight.",
   },
   {
     label: "Relationship clusters",
     value: "04",
-    note: "Strategic overlap and compounding pathways made visible.",
+    note: "Example overlap paths for a multi-venture founder.",
   },
   {
-    label: "Founder momentum",
+    label: "Sample momentum",
     value: "84",
-    note: "A signal for portfolio movement, intensity, and leverage.",
+    note: "A labeled demo score, not a published founder metric.",
   },
 ];
 
@@ -233,7 +233,7 @@ export default function Home() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm text-white/62 md:flex">
+        <nav className="hidden items-center gap-5 text-sm text-white/62 xl:flex">
           <a className="transition hover:text-white" href="/platform">Platform</a>
           <a className="transition hover:text-white" href="/features">Features</a>
           <a className="transition hover:text-white" href="/ecosystem">Ecosystem</a>
@@ -254,10 +254,10 @@ export default function Home() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#"
+            href="/dashboard"
             className="hidden rounded-full px-4 py-2 text-sm text-white/70 transition hover:bg-white/[0.05] hover:text-white md:inline-flex"
           >
-            Login
+            Open dashboard
           </a>
           <a
             href="/waitlist"
@@ -325,7 +325,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {["Portfolio active", "AI insights live", "Momentum visible", "Blitzscale ready"].map(
+                {["Sample portfolio", "Labeled demo insight", "Momentum preview", "Prototype map"].map(
                   (label) => (
                     <div
                       key={label}
@@ -374,8 +374,8 @@ export default function Home() {
                     </div>
                     <div className="mt-4 text-4xl font-semibold tracking-tight">84</div>
                     <p className="mt-3 text-sm leading-6 text-white/58">
-                      A live score reflecting execution pressure, focus, and portfolio
-                      movement.
+                      Sample score in this preview — not a live founder rating or
+                      published benchmark.
                     </p>
                   </div>
 
@@ -576,6 +576,7 @@ export default function Home() {
           <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
             FoundersKingdom is designed for founders who are building multiple ventures
             and need a clear way to see category, stage, score, and momentum together.
+            Cards below are local demo ventures so the map has something to show.
           </p>
         </div>
 
@@ -661,7 +662,7 @@ export default function Home() {
           <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="rounded-[30px] border border-white/8 bg-white/[0.03] p-6">
               <div className="text-[11px] uppercase tracking-[0.26em] text-white/35">
-                Ecosystem view
+                Ecosystem view · sample rows
               </div>
 
               <div className="mt-5 overflow-hidden rounded-[24px] border border-white/8 bg-black/20">
@@ -814,22 +815,23 @@ export default function Home() {
             to operate what comes next.
           </p>
 
-          <form className="mx-auto mt-10 flex max-w-2xl flex-col gap-4 sm:flex-row">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="min-h-[56px] w-full rounded-full border border-white/12 bg-white/[0.04] px-6 text-base text-white outline-none placeholder:text-white/34 focus:border-emerald-300/30"
-            />
+          <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="/waitlist"
               className="inline-flex min-h-[56px] min-w-[190px] items-center justify-center rounded-full bg-white px-8 text-base font-medium text-black shadow-[0_10px_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.01] hover:opacity-90"
             >
-              Join Waitlist
+              Join the waitlist
             </a>
-          </form>
+            <a
+              href="/dashboard"
+              className="inline-flex min-h-[56px] min-w-[190px] items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-8 text-base font-medium text-white/84 transition hover:bg-white/[0.07]"
+            >
+              Open the sample map
+            </a>
+          </div>
 
           <div className="mt-4 text-sm text-white/42">
-            Early access for founders, operators, and venture studios.
+            Waitlist and dashboard are live routes. No list size or conversion rate is claimed here.
           </div>
         </div>
       </section>
