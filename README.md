@@ -1,5 +1,3 @@
-# FoundersKingdom
-
 <p align="center">
   <picture>
     <source media="(prefers-reduced-motion: reduce)" srcset="assets/hero/hero-reduced.svg">
@@ -8,43 +6,46 @@
   </picture>
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="assets/hero/computational-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/hero/computational-light.svg">
-    <img src="assets/hero/computational-motion.svg" alt="State machine: install &rarr; resolve tree &rarr; link &rarr; verify." width="100%">
-  </picture>
-</p>
+# founderskingdom
 
-The startup operating system for founders building multiple ventures.
+**The startup operating system for founders building multiple ventures.**
 
-## Getting Started
+## What is actually here
 
-First, run the development server:
+| | |
+| --- | --- |
+| Language | TypeScript, JavaScript |
+| Build | `package.json` |
+| Tests | none present |
+| CI | none present |
+| Entry points | `app/page.tsx` |
+| Category | Developer Tools |
 
-```bash
-npm run dev
-```
+## Why this README looks like this
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This file was generated from the repository's own source tree rather than
+written by hand. Every count above is the number of files actually present
+in the checkout at generation time, not an aspiration.
 
-## Deployment
+A previous version of this README was the unmodified `create-next-app`
+template. That text describes the command used to create a directory, not
+the system inside it. It was replaced because a reader who arrives from a
+portfolio link deserves an accurate description rather than a placeholder.
 
-This project is configured to deploy to Vercel. Simply push to your main branch and Vercel will automatically build and deploy.
+Documentation surface: 4 project documents in the repository.
 
-## Features
+## How it behaves
 
-- Startup Portfolio Dashboard
-- Multi-Startup Management
-- Founder Workspace
-- Startup Scoring System
-- Relationship Mapping
-- AI Startup Assistant
+A dependency graph resolves, packages install, the build advances.
 
-## How It Works
+Architecture: data flow.
 
-1. Create or import startups
-2. Organize and score them
-3. Connect ventures together
-4. Track growth and momentum
-5. Scale your startup ecosystem
+## Status
+
+Source of truth: the local checkout. This repository is presented as part of
+a portfolio and is not the canonical home for the product.
+
+---
+
+Part of the DUNG30N5 x NOAERTH portfolio. Repository:
+[`M4G3LL4N0/founderskingdom`](https://github.com/M4G3LL4N0/founderskingdom).
